@@ -1,0 +1,70 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button text=""></ion-back-button>
+
+    </ion-buttons>
+    <ion-title>
+      <span>P</span>ayPark
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="main_div ion-margin-horizontal">
+    <ion-segment [(ngModel)]="type">
+      <!-- <ion-segment-button value="vehicle">
+        <ion-label>Vehicle</ion-label>
+      </ion-segment-button> -->
+      <!-- <ion-segment-button value="car">
+        <ion-label>Card</ion-label>
+      </ion-segment-button> -->
+    </ion-segment>
+    <div [ngSwitch]="type">
+      <div *ngSwitchCase="'vehicle'" class="vehicle_div">
+        <p class="first_p">Which vehicle you going to park?</p>
+        <ion-radio-group>
+
+          <ion-item-sliding *ngFor="let item of carData" #slidingItem>
+
+            <ion-item lines="none">
+              <ion-label class="name">{{item?.brand}} {{item?.model}}<span></span>{{item?.vehicle_no}}</ion-label>
+              <ion-radio slot="end" [value]="item.id" [checked]="item?.default_vehicle == '1'"
+                (ionSelect)="defaultCarChange(item.id)">
+              </ion-radio>
+            </ion-item>
+            <!-- [value]="item.id" [checked]="item?.default_vehicle == '1'"
+                (ionSelect)="defaultCarChange(item.id)" -->
+            <ion-item-options side="end">
+              <ion-item-option expandable type="button" (click)="presentModal(item.id,slidingItem)">
+                <ion-icon src="assets/icon-image/delete.svg"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-item-sliding>
+        </ion-radio-group>
+      </div>
+
+      <div *ngSwitchCase="'car'" class="car_div vehicle_div">
+        <p class="first_p">Which card do you want to use for payment?</p>
+        <ion-item-sliding *ngFor="let item of data?.card">
+          <ion-item lines="none">
+            <ion-label class="name">
+              <ion-icon [src]="item?.cimg"></ion-icon> <span>{{item?.cnumber}}</span>
+            </ion-label>
+            <ion-radio slot="end" value="item?.value" checked *ngIf="item?.radio" (ionSelect)="view()"></ion-radio>
+          </ion-item>
+          <ion-item-options side="end">
+            <ion-item-option expandable type="button" (click)="presentModal()">
+              <ion-icon [src]="  item?.icon"></ion-icon>
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+<ion-footer>
+  <ion-button class="otp_btn" (click)="addCar()">
+    Add Car
+  </ion-button>
+</ion-footer>

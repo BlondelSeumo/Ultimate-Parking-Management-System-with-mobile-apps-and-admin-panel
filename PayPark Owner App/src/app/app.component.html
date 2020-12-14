@@ -1,0 +1,52 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-header no-border>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <!-- <ion-button (click)="closeMenu()">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+      </ion-button> -->
+          </ion-buttons>
+          <ion-buttons slot="start">
+            <!-- <ion-button>
+        <ion-icon src="assets/icon-image/edit-white.svg">
+
+        </ion-icon>
+      </ion-button> -->
+          </ion-buttons>
+        </ion-toolbar>
+        <div class="img_div ion-text-center">
+          <img [src]="profileData.imageUri" alt="" srcset="" height="100" width="100" style="border-radius: 50%;">
+          <h3 class="name">
+            {{profileData.name}}
+          </h3>
+          <p class="text">{{profileData.email}}</p>
+        </div>
+
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]" detail="false"
+              [routerLinkActive]="['active','']" lines="none" *ngIf="userLevel >= p.for ">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+      <ion-footer>
+        <p (click)="setting()" *ngIf="userLevel >= 2">
+          <ion-icon src="assets/icon-image/blue-setting.svg"></ion-icon>Setting
+        </p>
+        <p class="ion-float-right second_p" (click)="SignOut()">
+          <ion-icon src="assets/icon-image/signout-icon.svg"></ion-icon>Signout
+        </p>
+      </ion-footer>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

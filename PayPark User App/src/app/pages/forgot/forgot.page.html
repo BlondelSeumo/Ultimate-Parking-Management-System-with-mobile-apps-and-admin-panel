@@ -1,0 +1,58 @@
+<ion-header no-border>
+  <ion-toolbar mode="md">
+    <ion-buttons>
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>Forgot Password</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-margin-horizontal main_div">
+    <p class="ion-text-center">
+      Enter your email or phone and will send you instruction on how to reset it
+    </p>
+
+
+    <form>
+      <ion-item class="dataitem " lines="none">
+        <ion-icon src="assets/icon-image/email-icon.svg" class="icon_img">
+        </ion-icon>
+        <ion-input placeholder="Email / Phone" [readonly]="userFind"></ion-input>
+      </ion-item>
+
+      <ion-grid class="ion-no-padding" *ngIf="step2">
+        <ion-row>
+          <ion-col size="6" class="ion-text-left ion-no-padding">
+            <ion-button (click)="editInformation()" color="danger" fill="clear" size="small">Edit Email / Number
+            </ion-button>
+          </ion-col>
+          <ion-col size="6" class="ion-text-right ion-no-padding">
+            <ion-button color="tertiary" fill="clear" size="small">Resend OTP</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-button class="otp_btn ion-button" (click)="findUser()" *ngIf="step1 ">
+        Send
+      </ion-button>
+
+      <ion-item class="dataitem " lines="none" *ngIf="step2">
+        <ion-icon src="assets/icon-image/email-icon.svg" class="icon_img">
+        </ion-icon>
+        <ion-input placeholder="Please enter OTP you received" [readonly]="userFind"></ion-input>
+      </ion-item>
+      <ion-button class="otp_btn ion-button" (click)="verifyUser()" *ngIf="step2">
+        Verify
+      </ion-button>
+
+      <ion-item class="dataitem " lines="none" *ngIf="step3">
+        <ion-icon src="assets/icon-image/email-icon.svg" class="icon_img">
+        </ion-icon>
+        <ion-input placeholder="Enter new password" [readonly]="userFind" type="password"></ion-input>
+      </ion-item>
+      <ion-button class="otp_btn ion-button" (click)="changePassword()" *ngIf="step3">
+        Submit
+      </ion-button>
+    </form>
+  </div>
+</ion-content>

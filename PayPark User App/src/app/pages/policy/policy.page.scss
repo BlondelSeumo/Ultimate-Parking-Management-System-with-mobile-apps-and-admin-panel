@@ -1,0 +1,16 @@
+ion-content{
+    .data_div{
+        margin-top: 30px;
+        .tittle{
+            font-size: 16px;
+            font-family: 'Rubik_Medium';
+            color: var(--ion-color-darkblue);
+        }
+        .detail_p{
+            font-size: 12px;
+            font-family: 'Rubik_Regular';
+            color: var(--ion-color-sky);
+            line-height: 20px
+        }
+    }
+}

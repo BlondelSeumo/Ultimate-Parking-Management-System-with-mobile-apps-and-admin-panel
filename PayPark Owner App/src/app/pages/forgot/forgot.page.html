@@ -1,0 +1,26 @@
+<ion-header no-border>
+  <ion-toolbar mode="md">
+    <ion-buttons>
+      <ion-back-button defaultHref="home" icon="ios-arrow-back" text="" mode="md"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Forgot Password</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-margin-horizontal main_div">
+    <p class="ion-text-center">
+      Enter your email and will send you instruction on how to reset it
+    </p>
+    <form>
+      <ion-item class="dataitem " lines="none">
+        <ion-icon src="assets/icon-image/email-icon.svg" class="icon_img">
+        </ion-icon>
+        <ion-input placeholder="Email" [(ngModel)]="data.email" [ngModelOptions]="{standalone: true}"></ion-input>
+      </ion-item>
+    </form>
+    <ion-button class="otp_btn" [disabled]="!data.email" (click)="login()">
+      Send
+    </ion-button>
+  </div>
+</ion-content>

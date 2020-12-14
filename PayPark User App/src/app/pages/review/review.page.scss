@@ -1,0 +1,44 @@
+ion-content{
+    .review_div{
+        border-radius: 5px;
+        box-shadow: 0px 1px 6px 0px rgba(52,150,255,0.16);
+        padding: 10px 0px;
+        margin-bottom: 50px;
+        margin-top: 20px;
+        background-image: url("../../../assets/image/back-img.png");
+        .tittle{
+            font-size: 20px;
+            font-family: 'Rubik_Medium';
+            color: var(--ion-color-darkblue);
+        }
+        .star_p{
+            margin-top: 20px;
+            ion-icon{
+                height: 26px;
+                width: 28px;
+            }
+            .icon_color{
+                color: var(--ion-color-yellow);
+            }
+            .icon_default{
+                color: var(--ion-color-star);
+            }
+        }        
+    }
+    .write{
+        .heading{
+            font-size: 16px;
+            font-family: 'Rubik_Medium';
+            color: var(--ion-color-darkblue);
+        }
+        ion-textarea{
+            border-radius: 5px;
+            box-shadow: 0px 2px 6px 0px rgba(52,150,255,0.16);
+            padding: 10px;
+            font-size: 14px;
+            font-family: 'Rubik_Regular';
+            color: var(--ion-color-sky);
+            line-height: 20px;
+        }
+    }
+}

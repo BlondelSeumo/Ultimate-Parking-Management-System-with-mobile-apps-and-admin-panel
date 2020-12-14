@@ -1,0 +1,31 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+
+      <ion-back-button text=""></ion-back-button>
+
+    </ion-buttons>
+    <ion-title>PayPark</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="first_div">
+    <ion-searchbar clearIcon="string" placeholder="Search Parking.." (ionInput)="getItems($event)"></ion-searchbar>
+    <ion-row>
+      <ion-col class="first_col">
+        <h3 class="tittle">Arriving</h3>
+        <!-- <p class="data">Nov 1, 10:00AM</p> -->
+        <ion-datetime value="1990-11-1 10:00" displayFormat="MMM D, HH:mm A" pickerFormat="DDD DD MMM HH:mm A"
+          placeholder="Select Date"></ion-datetime>
+      </ion-col>
+      <ion-col>
+        <h3 class="tittle">Leaving</h3>
+        <!-- <p class="data">Nov 1, 01:00PM</p> -->
+        <ion-datetime value="1990-11-1 01:00 " displayFormat="MMM D, HH:mm A" placeholder="Select Date"></ion-datetime>
+      </ion-col>
+    </ion-row>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,276 @@
+ion-content {
+    small {
+        color: red;
+    }
+
+    .logo_div {
+        margin-top: 25px;
+        position: relative;
+
+        .logo_text {
+            font-size: 50px;
+            font-family: 'Rubik_Medium_I';
+            color: var(--ion-color-darkblue);
+            margin-top: 10px;
+
+            span {
+                color: var(--ion-color-blue);
+            }
+
+        }
+
+        .signin {
+            font-size: 30px;
+            font-family: 'WorkSans_Bold';
+            color: var(--ion-color-darkblue);
+
+        }
+
+    }
+
+    form {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 10px;
+
+        .item_div {
+            --padding-start: 0px;
+            border-bottom: 1px solid var(--ion-color-borderline);
+            --inner-padding-end: 0;
+
+            .lbl_name {
+                font-size: 20px;
+                color: var(--ion-color-darkblue);
+                font-family: 'Rubik_Medium';
+                margin-bottom: 5px;
+                margin-top: 5px;
+                font-weight: 600;
+            }
+
+            ion-input {
+                --placeholder-color: var(--ion-color-placeholder);
+                --placeholder-font-style: 'Rubik_Regular';
+                --placeholder-opacity: 1;
+                font-size: 16px;
+                font-family: 'Rubik_Regular';
+            }
+
+            .trans-btn {
+                color: var(--ion-color-gray);
+                margin-top: 53px;
+            }
+        }
+
+        ion-row {
+            ion-col {
+                padding: 0px;
+                margin-top: 5px;
+
+                ion-checkbox {
+                    margin-right: 10px;
+                    --border-radius: 2px;
+                    height: 20px;
+                    width: 20px;
+                    --border-color: var(--ion-color-checkb);
+                }
+            }
+
+            .first_col {
+                padding-top: 8px;
+                display: flex;
+
+                .remember {
+                    font-size: 14px;
+                    font-family: 'Rubik_Regular';
+                    color: var(--ion-color-placeholder);
+                }
+            }
+
+            .forgot-btn {
+                font-size: 14px;
+                font-family: 'Rubik_Regular';
+                --color: var(--ion-color-black);
+            }
+
+        }
+
+        .signin_btn {
+            --border-radius: 25px;
+            margin-top: 30px;
+            height: 46px;
+            --box-shadow: none;
+        }
+    }
+
+    .or {
+        h2 {
+            font-size: 18px;
+            font-family: 'WorkSans_Medium';
+            color: var(--ion-color-gray);
+            margin-top: 30px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        h2.background {
+            position: relative;
+            z-index: 1;
+
+            &:before {
+                border-top: 2px solid #dfdfdf;
+                content: "";
+                margin: 0 auto;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 95%;
+                z-index: -1;
+            }
+
+            span {
+                background: #fff;
+                padding: 0 15px;
+            }
+        }
+
+        h2.double:before {
+            border-top: none;
+        }
+
+        h2.double:after {
+            border-bottom: 1px solid blue;
+            -webkit-box-shadow: 0 1px 0 0 red;
+            -moz-box-shadow: 0 1px 0 0 red;
+            box-shadow: 0 1px 0 0 red;
+            content: "";
+            margin: 0 auto;
+            position: absolute;
+            top: 45%;
+            left: 0;
+            right: 0;
+            width: 95%;
+            z-index: -1;
+        }
+
+        h2.no-background {
+            position: relative;
+            overflow: hidden;
+
+            span {
+                display: inline-block;
+                vertical-align: baseline;
+                zoom: 1;
+                *display: inline;
+                *vertical-align: auto;
+                position: relative;
+                padding: 0 20px;
+
+                &:before,
+                &:after {
+                    content: '';
+                    display: block;
+                    width: 1000px;
+                    position: absolute;
+                    top: 0.73em;
+                    border-top: 1px solid red;
+                }
+
+                &:before {
+                    right: 100%;
+                }
+
+                &:after {
+                    left: 100%;
+                }
+            }
+        }
+
+        h2.no-span {
+            display: table;
+            white-space: nowrap;
+
+            &:before,
+            &:after {
+                border-top: 1px solid green;
+                content: '';
+                display: table-cell;
+                position: relative;
+                top: 0.5em;
+                width: 45%;
+            }
+
+            &:before {
+                right: 1.5%;
+            }
+
+            &:after {
+                left: 1.5%;
+            }
+        }
+    }
+
+    .last-div {
+        margin-top: 20px;
+
+        .twitter {
+            --background: var(--ion-color-twiter-btn);
+
+            ion-icon {
+                width: 14px;
+                height: 11px;
+            }
+        }
+
+        .facbook {
+            --background: var(--ion-color-facebook-btn);
+
+            ion-icon {
+                width: 7px;
+                height: 13px;
+            }
+        }
+
+        .google {
+            --background: var(--ion-color-google-btn);
+            margin: 0px 20px;
+
+            ion-icon {
+                width: 18px;
+                height: 12px;
+            }
+        }
+
+        .social {
+            height: 30px;
+            --border-radius: 15px;
+            width: 80px;
+            --padding-start: 0px;
+            --padding-end: 0px;
+            --box-shadow: none;
+
+        }
+
+        .account_div {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .last_button {
+                --color: var(--ion-color-darkblue);
+                font-size: 16px;
+                font-family: 'Rubik_Medium';
+                text-transform: capitalize;
+                margin-left: 4px;
+            }
+
+            .text {
+                font-size: 16px;
+                font-family: 'Rubik_Regular';
+                color: var(--ion-color-darkblue);
+            }
+        }
+    }
+}

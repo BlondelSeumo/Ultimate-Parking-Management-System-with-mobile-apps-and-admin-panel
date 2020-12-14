@@ -1,0 +1,43 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button text="" color="light"></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <div class="main_div ion-margin-horizontal">
+
+    <p class="question">Search for your vehicle brand </p>
+    <ion-item>
+      <ion-input placeholder="Brand ?" [(ngModel)]="carData.brand">
+
+      </ion-input>
+      <small color="danger" *ngIf="error.brand">{{error.brand['0']}}</small>
+
+    </ion-item>
+    <p class="question">Search for your vehicle model number</p>
+    <ion-item>
+      <ion-input placeholder="What are you driving?" [(ngModel)]="carData.model">
+
+      </ion-input>
+      <small color="danger" *ngIf="error.model">{{error.model['0']}}</small>
+    </ion-item>
+    <p class="question second">What is your vehicle number?</p>
+    <ion-item>
+      <ion-input placeholder="What are you driving?" [(ngModel)]="carData.vehicle_no">
+
+
+      </ion-input>
+      <small color="danger" *ngIf="error.vehicle_no">{{error.vehicle_no['0']}}</small>
+    </ion-item>
+
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-button class="otp_btn" (click)="saveData()">
+    Add
+  </ion-button>
+</ion-footer>

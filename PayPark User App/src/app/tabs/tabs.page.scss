@@ -1,0 +1,14 @@
+ion-tab-bar{
+    box-shadow: 0px -2px 6px 0px rgba(52, 150, 255, 0.20);
+    ion-tab-button{
+        --color-selected:var(--ion-color-darkblue);
+        --color:#7F97B1;
+        ion-label{
+            //font-size: 12px;
+            font-family: 'Rubik_Medium';
+        }
+    }
+}
+
+
+

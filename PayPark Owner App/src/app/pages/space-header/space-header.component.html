@@ -1,0 +1,13 @@
+  <div (click)="presentAlertRadio()" class="locationContent">
+    <img src="../../assets/image/location.png">
+    <div class="textContent" *ngIf="defaultParking">
+      <h2 class="location">{{defaultParkingData.title?.substring(0,10)}} <img src="../../assets/icon-image/BACK.svg">
+      </h2>
+      <p class="address">{{defaultParkingData.address?.substring(0,20)}}</p>
+    </div>
+    <div class="textContent" *ngIf="!defaultParking">
+      <h2 class="location"> Select Space<img src="../../assets/icon-image/BACK.svg">
+      </h2>
+      <p class="address">Or add new space</p>
+    </div>
+  </div>

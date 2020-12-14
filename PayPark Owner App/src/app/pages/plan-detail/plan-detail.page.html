@@ -1,0 +1,153 @@
+<ion-header>
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-button class="show-sm ion-text-uppercase" *ngIf="lastSubscription?.time_left">
+        <ion-label>{{lastSubscription?.time_left }}</ion-label>
+
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Subscription</ion-title>
+    <ion-buttons slot="end">
+
+
+
+      <ion-button (click)="stripeAddCars()" *ngIf="newCardToggle">
+        <ion-label class="show-sm">Save</ion-label>
+        <ion-icon class="show-sm" name="card" slot="end"></ion-icon>
+        <ion-icon class="hide-sm" name="card" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="ion-margin-horizontal">
+    <ng-container>
+      <p class="text_p hide-sm" *ngIf="lastSubscription?.time_left">End At</p>
+
+      <ion-item *ngIf="lastSubscription?.time_left" class="ion-margin-top hide-sm ion-text-uppercase" lines="none"
+        style=" box-shadow: 0px 1px 6px 0px rgba(52, 150, 255, 0.16);
+     border-radius: 5px;">
+
+        <ion-label color="danger ion-margin-top ion-text-center" style="font-weight:bolder">
+          {{lastSubscription?.time_left }}
+        </ion-label>
+
+      </ion-item>
+      <p class="text_p">Add New Card</p>
+      <ion-row>
+        <ion-col size="12" style=" box-shadow: 0px 1px 6px 0px rgba(52, 150, 255, 0.16);
+     border-radius: 5px; padding: 12px;">
+          <div id="card-element">
+            <!-- a Stripe Element will be inserted here. -->
+          </div>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <p class="text_p" *ngIf="cards?.length > 0">Card List</p>
+    <ion-radio-group>
+
+      <ion-item-sliding *ngFor="let card of cards">
+
+        <ion-item lines="none">
+          <ion-label class="name">
+            <span class="show-sm">xxxx xxxx &nbsp;</span> xxxx {{card.card.last4}}
+          </ion-label>
+          <ion-label class="ion-text-right">{{card.card.exp_month}}/{{card.card.exp_year}}</ion-label>
+          <ion-radio slot="end" [value]="card.id" [checked]="card.id == customer.default_source"
+            (ionSelect)="defaultCarChange(card.id)">
+          </ion-radio>
+        </ion-item>
+        <ion-item-options side="end">
+          <ion-item-option expandable type="button" (click)="deleteCard(card.id)">
+            <ion-icon src="assets/icon-image/delete.svg"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-radio-group>
+  </div>
+  <p class="text_p ion-margin-start " style="margin-bottom: 0px;">Plan List</p>
+
+  <ion-grid>
+
+    <ion-row>
+      <ion-col size="12" sizeLg="3" sizeMd="6">
+        <ion-card>
+          <img src="assets/image/paypark.png" />
+          <ion-card-header>
+            <ion-card-subtitle class="col-12" style="display: flex;
+            justify-content: space-between;">
+              <span>Life Ttme </span>
+              <span>33% Admin Share</span>
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-label>Free Starter Plan</ion-label>
+
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+
+            <br>
+            <div class="col-12 ion-text-center ion-margin-top">
+
+              <ion-button color="primary" [fill]="profileData.customer_id ? 'outline'  : 'solid'">
+                <ng-container *ngIf="!profileData.customer_id">
+                  Activated
+                </ng-container>
+                <ng-container *ngIf="profileData.customer_id">
+                  FREE
+                </ng-container>
+              </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="12" sizeLg="3" sizeMd="6" *ngFor="let plan of data">
+        <ion-card>
+          <img src="assets/image/paypark.png" />
+          <ion-card-header>
+            <ion-card-subtitle class="col-12" style="    display: flex;
+    justify-content: space-between;">
+              <span>{{plan?.interval_count}}-{{plan?.interval}} </span>
+              <span>0% Admin Share</span>
+            </ion-card-subtitle>
+            <ion-card-title>
+              <ion-label>{{plan?.product?.name}}</ion-label>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+
+            <br>
+            <div class="col-12 ion-text-center ion-margin-top">
+              <ion-button color="primary" [fill]="lastSubscription?.sub_id == plan.id ? 'solid' : 'outline'"
+                (click)="buySubscription(plan.id)">
+                <ng-container *ngIf="lastSubscription?.sub_id == plan.id">
+                  Activated
+                </ng-container>
+                <ng-container *ngIf="lastSubscription?.sub_id != plan.id">
+                  ${{plan?.amount / 100}}
+                </ng-container>
+              </ion-button>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+
+
+
+    </ion-row>
+    <ion-row *ngIf="!profileData.customer_id" class="ion-margin-top">
+      <ion-col size="12" style="box-shadow: 0px 1px 6px 0px rgba(52, 150, 255, 0.16);" sizeSm="12" sizeLg="6" sizeMd="8"
+        pushSm="0" pushLg="3" pushMd="2">
+        <div class="input-card-data">
+          <h1 class="ion-text-center">Please Add Payment Method</h1>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,111 @@
+ion-content {
+    .img_div {
+        margin-top: 40px;
+
+        .tittle {
+            font-size: 20px;
+            color: var(--ion-color-darkblue);
+            font-family: 'Rubik_Medium';
+        }
+
+        .text {
+            font-size: 14px;
+            font-family: 'Rubik_Regular';
+            color: var(--ion-color-sky);
+            width: 80%;
+            margin: auto;
+        }
+    }
+
+    form {
+        padding: 10px 0px;
+
+        .form_p {
+            font-size: 16px;
+            font-family: 'Rubik_Medium';
+            color: var(--ion-color-darkblue);
+            margin-bottom: 0px;
+        }
+
+        .item_div {
+            --padding-start: 0px;
+            //    border-bottom: 1px solid var(--ion-color-borderline);
+            --inner-padding-end: 0;
+
+            .lbl_name {
+                font-size: 20px;
+                color: var(--ion-color-blue);
+                font-family: 'Rubik_Medium';
+                margin-bottom: 5px;
+                margin-top: 5px;
+
+            }
+
+            ion-input {
+                font-size: 16px;
+                font-family: 'Rubik_Medium';
+                --color: var(--ion-color-darkblue);
+            }
+
+        }
+    }
+
+    .type_p {
+        font-size: 16px;
+        color: var(--ion-color-darkblue);
+        font-family: 'Rubik_Medium';
+    }
+
+    .type_div {
+        height: 50px;
+        border-radius: 5px;
+        box-shadow: 0px 1px 6px 0px rgba(52, 150, 255, 0.16);
+        margin-bottom: 20px;
+        display: flex;
+
+        .space_div {
+            width: 33.33%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            ion-button {
+                font-size: 14px;
+                font-family: 'Rubik_Medium';
+                --color: var(--ion-color-blue);
+                --background: transparent;
+                height: 100%;
+                --box-shadow: none;
+                text-transform: capitalize;
+                width: 100%;
+                margin: 0px;
+                --background-activated: none;
+                --background-focused: none;
+
+            }
+
+            #drive {
+                border-radius: 5px 0px 0px 5px;
+            }
+
+            #parking {
+                border-radius: 0px 5px 5px 0px;
+            }
+
+        }
+
+        .garage_div {
+            border-right: solid 1px var(--ion-colo-backg);
+            border-left: solid 1px var(--ion-colo-backg);
+        }
+    }
+}
+
+.selected {
+    background: var(--ion-color-blue);
+    color: var(--ion-color-white);
+}
+
+agm-map {
+    height: 300px;
+}

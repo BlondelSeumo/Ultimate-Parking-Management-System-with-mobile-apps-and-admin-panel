@@ -1,0 +1,345 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import '~@ionic/angular/css/core.css';
+
+/* Basic CSS for apps built with Ionic */
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+.otp_btn {
+  --background: var(--ion-color-blue);
+  --color: var(--ion-color-white);
+  font-size: 16px;
+  font-family: 'Rubik_Medium';
+  height: 50px;
+  --border-radius: 0px;
+  margin: 0px;
+  --background-activated: var(--ion-color-blue);
+  width: 100%;
+  letter-spacing: 0em;
+  text-transform: uppercase;
+}
+
+.trans-btn {
+  --background: transparent;
+  --box-shadow: none;
+  --border: none;
+  --padding-start: none;
+  font-size: 16px;
+  --padding-end: none;
+  font-family: 'Rubik_Medium';
+  --background-activated: none;
+  margin-right: 0px;
+}
+
+ion-header {
+  color: var(--ion-color-white);
+
+  ion-toolbar {
+    ion-title {
+      font-size: 18px;
+      font-family: 'Rubik_Medium';
+      color: var(--ion-color-white);
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0 90px 1px;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+
+      span {
+        color: var(--ion-color-white);
+      }
+    }
+
+    .locationContent {
+      padding-left: 10px;
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      img {
+        margin-right: 8px;
+      }
+
+      .textContent {
+        .location {
+          font-family: 'Rubik_Medium';
+          font-size: 14px;
+          margin: 0;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          color: var(--ion-color-darkblue);
+
+          img {
+            margin-left: 6px;
+          }
+        }
+
+        .address {
+          margin: 0;
+          color: var(--ion-color-darkblue);
+          font-family: 'Rubik_Medium';
+          line-height: 1;
+          font-size: 10px;
+          margin-top: 4px;
+        }
+      }
+
+      .edit_btn {
+        position: absolute;
+        right: 0;
+        align-self: baseline;
+        height: 25px;
+
+        ion-icon {
+          height: 20px;
+        }
+      }
+    }
+
+    ion-buttons {
+      position: relative;
+
+      ion-menu-button {
+        color: var(--ion-color-white);
+      }
+
+      ion-button {
+        width: 100% !important;
+        color: var(--ion-color-white) !important;
+      }
+    }
+  }
+}
+
+.searchbar-input.sc-ion-searchbar-md {
+  -webkit-padding-start: 30px !important;
+  padding-inline-start: 30px !important;
+}
+
+.sc-ion-searchbar-md-h {
+  padding-left: unset;
+  padding-right: unset;
+  -webkit-padding-start: 8px;
+  padding-inline-start: 16px;
+  -webkit-padding-end: 8px;
+  padding-inline-end: 16px;
+}
+
+.searchbar-input-container.sc-ion-searchbar-ios {
+  contain: none;
+}
+
+.searchbar-search-icon.sc-ion-searchbar-ios {
+  margin-left: calc(50% - 60px);
+  left: inherit;
+  top: 11px;
+  right: 18px;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  contain: strict;
+  color: var(--ion-color-darkblue) !important;
+}
+
+.searchbar-search-icon.sc-ion-searchbar-md {
+  left: auto;
+  top: 11px;
+  right: 18px;
+  width: 18px;
+  height: 18px;
+  color: var(--ion-color-darkblue) !important;
+}
+
+.searchbar-input {
+  padding-left: 10px;
+  background: #fff !important;
+  border-radius: 30px !important;
+  height: 40px !important;
+  //max-width: 400px;
+  font-size: 13px !important;
+  font-family: 'Rubik_Medium_I' !important;
+  border: 1px solid transparent;
+  color: var(--ion-color-darkblue) !important;
+  box-shadow: 0px 2px 6px 0px rgba(52, 150, 255, 0.16) !important;
+
+  ion-icon {
+    right: 16px !important;
+    left: auto !important;
+    color: var(--ion-color-darkblue);
+  }
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+  bottom: 200px !important;
+  left: 0 !important;
+  width: 100% !important;
+}
+
+.mymodal {
+  --height: 151px;
+  --max-height: 200px;
+  //  padding: 0px 20px;
+  --width: 90%;
+  --border-radius: 30px 30px 0px 0px;
+  --box-shadow: 0px -2px 6px 0px rgba(52, 150, 255, 0.16);
+
+  .modal-wrapper {
+    position: absolute;
+    bottom: 0;
+  }
+}
+
+.popover {
+  --height: 92px;
+  --max-height: 150px;
+  --width: 140px;
+  box-shadow: 0px 1px 6px 0px rgba(52, 150, 255, 0.16);
+  --border-radius: 5px;
+
+  //--background:var(--ion-color-darkblue);
+  .popover-content {
+    top: 140px !important;
+    left: inherit !important;
+    right: 16px !important;
+    transform-origin: right top !important;
+  }
+}
+
+strong {
+  color: red;
+}
+
+@media all and (min-width: 1200px) {
+  .hide-xl {
+    display: none !important;
+  }
+
+  .hide-lg {
+    display: none !important;
+  }
+
+  .hide-md {
+    display: none !important;
+  }
+
+  .hide-sm {
+    display: none !important;
+  }
+
+  .hide-xs {
+    display: none !important;
+  }
+}
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+  .show-xl {
+    display: none !important;
+  }
+
+  .hide-lg {
+    display: none !important;
+  }
+
+  .hide-md {
+    display: none !important;
+  }
+
+  .hide-sm {
+    display: none !important;
+  }
+
+  .hide-xs {
+    display: none !important;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+  .show-xl {
+    display: none !important;
+  }
+
+  .show-lg {
+    display: none !important;
+  }
+
+  .hide-md {
+    display: none !important;
+  }
+
+  .hide-sm {
+    display: none !important;
+  }
+
+  .hide-xs {
+    display: none !important;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+  .show-xl {
+    display: none !important;
+  }
+
+  .show-lg {
+    display: none !important;
+  }
+
+  .show-md {
+    display: none !important;
+  }
+
+  .hide-sm {
+    display: none !important;
+  }
+
+  .hide-xs {
+    display: none !important;
+  }
+}
+
+@media all and (min-width: 0px) and (max-width: 575px) {
+  .show-xl {
+    display: none !important;
+  }
+
+  .show-lg {
+    display: none !important;
+  }
+
+  .show-md {
+    display: none !important;
+  }
+
+  .show-sm {
+    display: none !important;
+  }
+
+  .hide-xs {
+    display: none !important;
+  }
+}

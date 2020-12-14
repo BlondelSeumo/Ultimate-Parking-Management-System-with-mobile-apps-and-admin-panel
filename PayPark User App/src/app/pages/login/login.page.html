@@ -1,0 +1,48 @@
+<ion-content>
+    <div class="ion-text-center  logo_div">
+        <img src="assets/image/logo.png">
+        <h3 class="logo_text"><span>P</span>ay<span>P</span>ark</h3>
+        <h3 class="signin">SIGN IN</h3>
+    </div>
+
+    <div class="div-form">
+        <ion-item lines="none" class="item_div">
+            <ion-label position="stacked" class="lbl_name">Email</ion-label>
+            <ion-input required type="text" [(ngModel)]="email" placeholder="JohnDeo@gmail.com"></ion-input>
+            <small color="danger" *ngIf="error.email">{{error.email['0']}}</small>
+
+        </ion-item>
+        <ion-item lines="none" class="item_div">
+            <ion-label position="stacked" class="lbl_name">Password</ion-label>
+            <ion-input required [(ngModel)]="password" type="Password" placeholder="*  *  *  *  *  *"></ion-input>
+            <ion-button slot="end" class="trans-btn">
+                <ion-icon name="eye"></ion-icon>
+            </ion-button>
+            <small color="danger" *ngIf="error.password">{{error.password['0']}}</small>
+        </ion-item>
+        <ion-row>
+            <ion-col class="first_col">
+                <ion-checkbox></ion-checkbox>
+                <ion-label>
+                    <h3 class="remember">Remember Me</h3>
+                </ion-label>
+            </ion-col>
+            <ion-col class="ion-text-right">
+                <ion-button class="forgot-btn ion-text-capitalize trans-btn" (click)="forgotPassword()">forgot password?
+                </ion-button>
+            </ion-col>
+        </ion-row>
+        <ion-button class="otp_btn signin_btn" mode="md" expand="full" shape="round" fill="solid" (click)="login()">
+            Sign in
+        </ion-button>
+    </div>
+    <div class="or">
+        <h2 class="background"><span>or</span></h2>
+    </div>
+    <div class="last-div ion-text-center">
+        <div class="account_div">
+            <span class="text">Need an Account?</span>
+            <ion-button class="trans-btn last_button" (click)="signup()">Sign up</ion-button>
+        </div>
+    </div>
+</ion-content>

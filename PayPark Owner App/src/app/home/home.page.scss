@@ -1,0 +1,239 @@
+ion-header {
+  ion-toolbar {}
+}
+
+ion-content {
+
+  // ion-searchbar{
+  //   margin-top: 20px;
+  // }
+  .sedan {
+
+    width: 100%;
+    padding: 5px 16px;
+    // justify-content: center;
+    margin-bottom: 25px;
+
+    display: flex;
+
+    .img_div {
+      display: grid;
+
+      .poligon {
+        width: 0;
+        height: 0;
+        border-left: 70px solid transparent;
+        border-right: 70px solid transparent;
+        border-top: 100px solid red;
+        border-radius: 50%;
+      }
+
+      img {
+        height: 80px;
+      }
+
+    }
+
+    .first_div {
+      width: 33.33%;
+      display: flex;
+      justify-content: flex-start;
+
+      .tri_div {
+        transform: rotate(-60deg);
+        margin: 0px 0px;
+        position: relative;
+
+        .triangle {
+          position: relative;
+          background-color: var(--ion-select-vehicle);
+          text-align: left;
+          margin: 10px;
+          align-self: center;
+        }
+
+        .triangle:before,
+        .triangle:after {
+          content: '';
+          position: absolute;
+          background-color: inherit;
+        }
+
+        .triangle,
+        .triangle:before,
+        .triangle:after {
+          width: 40px;
+          height: 40px;
+          border-top-right-radius: 50%;
+        }
+
+        .triangle {
+          transform: rotate(-60deg) skewX(-30deg) scale(1, .866);
+        }
+
+        .triangle:before {
+          transform: rotate(-135deg) skewX(-45deg) scale(1.414, .707) translate(0, -50%);
+        }
+
+        .triangle:after {
+          transform: rotate(135deg) skewY(-45deg) scale(.707, 1.414) translate(50%);
+        }
+
+        img {
+
+          position: absolute;
+          top: 45px;
+          left: 11px;
+          transform: rotate(60deg);
+        }
+
+      }
+
+    }
+
+  }
+
+  .tridev {
+    margin-top: 15px;
+    height: 8px;
+    background-color: var(--ion-colo-backg);
+    display: flex;
+    align-items: center;
+
+    .distance_div {
+      width: 25%;
+
+      .distance {
+        font-size: 14px;
+        font-family: 'Rubik_Medium';
+        color: var(--ion-color-darkblue);
+        text-align: center;
+        margin-bottom: 0px;
+      }
+
+      .detail_p {
+        margin-top: 5px;
+        font-family: 'Rubik_Medium';
+        color: var(--ion-color-darkblue);
+        font-size: 12px;
+        text-align: center;
+      }
+    }
+
+    .dot_div {
+      width: 12.5%;
+      display: flex;
+      justify-content: center;
+
+      .dot {
+        height: 7px;
+        width: 7px;
+        background-color: var(--ion-color-blue);
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .user_div {
+    .user_p {
+      font-size: 16px;
+      font-family: 'Rubik_Medium';
+      color: var(--ion-color-darkblue);
+      margin-bottom: 25px;
+
+      span {
+        font-family: 'Rubik_Medium';
+        font-size: 14px;
+        color: var(--ion-color-blue);
+      }
+
+    }
+
+    .card_div {
+      display: flex;
+      margin-bottom: 10px;
+
+      .img_div {
+        // width: 25%;
+        margin-right: 4px;
+
+        img {
+          //  width: 100%;
+          border-radius: 3px;
+        }
+      }
+
+      .data_div {
+        width: 100%;
+        padding-left: 10px;
+        padding-top: 2px;
+
+        .name {
+          font-size: 18px;
+          font-family: 'Rubik_Medium';
+          color: var(--ion-color-darkblue);
+          margin-top: 0px;
+          margin-bottom: 7px;
+
+          span {
+            font-size: 15px;
+            color: var(--ion-color-blue);
+          }
+        }
+
+        .id_p {
+          font-family: 'Rubik_Regular';
+          font-size: 14px;
+          color: var(--ion-color-sky);
+          margin-top: 0px;
+          margin-bottom: 5px;
+          font-weight: bolder;
+
+          ion-icon {
+            margin-right: 5px;
+          }
+
+          span {
+            margin-left: 10px;
+          }
+        }
+
+        .car_p {
+          font-family: 'Rubik_Regular';
+          font-size: 14px;
+          color: var(--ion-color-sky);
+          margin: 0px;
+          font-weight: bolder;
+
+          ion-icon {
+            margin-right: 5px;
+            height: 10px;
+            width: 15px;
+          }
+
+          span {
+            margin-left: 48px;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+ion-footer {
+  .last_div {
+    height: 50px;
+    background-color: var(--ion-color-blue);
+    font-size: 14px;
+    color: var(--ion-color-white);
+    font-family: 'Rubik_Medium';
+    display: flex;
+    align-items: center;
+
+    p {
+      width: 100%;
+      padding: 0 16px;
+    }
+  }
+}

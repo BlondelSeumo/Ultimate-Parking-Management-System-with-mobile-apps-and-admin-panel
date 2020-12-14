@@ -1,0 +1,62 @@
+<ion-content>
+    <div class="ion-text-center  logo_div">
+        <img src="assets/image/logo.png">
+        <h3 class="logo_text"><span>P</span>ay<span>P</span>ark</h3>
+        <h3 class="signin">SIGN UP</h3>
+    </div>
+
+    <div class="form">
+        <ion-item lines="none" class="item_div">
+            <ion-label position="stacked" class="lbl_name">Email</ion-label>
+            <ion-input required type="text" [(ngModel)]="modelData.email" placeholder="JohnDeo@gmail.com"></ion-input>
+            <small color="danger" *ngIf="error.email">{{error.email['0']}}</small>
+        </ion-item>
+        <ion-item lines="none" class="item_div">
+            <ion-label position="stacked" class="lbl_name">Name</ion-label>
+            <ion-input required type="text" [(ngModel)]="modelData.name" placeholder="John Deo"></ion-input>
+            <small color="danger" *ngIf="error.name">{{error.name['0']}}</small>
+
+        </ion-item>
+        <ion-item lines="none" class="item_div">
+            <ion-label position="stacked" class="lbl_name">Password</ion-label>
+            <ion-input required [(ngModel)]="modelData.password" type="Password" placeholder="*  *  *  *  *  *">
+            </ion-input>
+            <ion-button slot="end" class="trans-btn">
+                <ion-icon name="eye"></ion-icon>
+            </ion-button>
+            <small color="danger" *ngIf="error.password">{{error.password['0']}}</small>
+
+        </ion-item>
+        <ion-item lines="none" class="item_div">
+            <ion-label position="stacked" class="lbl_name">Confirm Password</ion-label>
+            <ion-input [(ngModel)]="modelData.password_confirmation" required type="Password"
+                placeholder="*  *  *  *  *  *">
+            </ion-input>
+            <ion-button slot="end" class="trans-btn">
+                <ion-icon name="eye"></ion-icon>
+            </ion-button>
+        </ion-item>
+
+        <ion-button class="otp_btn signin_btn" mode="md" expand="full" shape="round" fill="solid" (click)="register()">
+            Sign up
+        </ion-button>
+    </div>
+    <div class="or">
+        <h2 class="background"><span>or</span></h2>
+    </div>
+    <div class="last-div ion-text-center">
+        <ion-button class="facbook social">
+            <ion-icon src="assets/icon-image/facbook.svg"></ion-icon>
+        </ion-button>
+        <ion-button class="google social">
+            <ion-icon name="logo-googleplus"></ion-icon>
+        </ion-button>
+        <ion-button class="twitter social">
+            <ion-icon name="logo-twitter"></ion-icon>
+        </ion-button>
+        <div class="account_div">
+            <span class="text">Need an Account?</span>
+            <ion-button class="trans-btn last_button" (click)="login()">Sign in</ion-button>
+        </div>
+    </div>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+
+      <ion-back-button text=""></ion-back-button>
+
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider round"></span>
+      </label>
+    </ion-buttons>
+    <ion-title>
+      <span>P</span>ayPark
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_div ion-margin-horizontal">
+    <h3 class="text">Near Office</h3>
+    <div class="near_div" *ngFor="let item of data">
+      <p>{{item}}</p>
+    </div>
+
+  </div>
+</ion-content>

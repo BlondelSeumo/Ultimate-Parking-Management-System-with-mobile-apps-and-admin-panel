@@ -1,0 +1,102 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+
+      <!-- <ion-icon name="ios-arrow-back"> -->
+
+      <!-- </ion-icon> -->
+
+    </ion-buttons>
+    <ion-title><span>P</span>ayPark</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="updateProfileToggle()" *ngIf="!isProfileUpdate">
+        <ion-icon src="assets/icon-image/edit.svg"></ion-icon>
+      </ion-button>
+      <ion-button color="primary" (click)="updateProfile()" *ngIf="isProfileUpdate">
+        <ion-icon name="done-all"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item>
+    <div class="ion-text-center" style="width: 100%;">
+      <img [src]="profileData.imageUri" height="150" width="150" style="border-radius: 50%;"
+        (click)="tackPhotoFromCamera()">
+      <h3 class="tittle">Up to date your profile</h3>
+      <p class="text ion-padding-horizontal">Powered by SaaSMonks</p>
+    </div>
+    <ion-label position="stacked" class="tittle">Name </ion-label>
+
+    <ion-input class="data" required type="text" [(ngModel)]="profileData.name" [readonly]="!isProfileUpdate">
+    </ion-input>
+    <small color="danger" *ngIf="error.name">{{error.name['0']}}</small>
+
+    <!-- <p class="data">{{profileData?.name}}</p> -->
+
+  </ion-item>
+  <ion-item>
+
+    <ion-label position="stacked" class="tittle">Email </ion-label>
+    <ion-input class="data" required type="text" [(ngModel)]="profileData.email" readonly>
+    </ion-input>
+    <small color="danger" *ngIf="error.email">{{error.email['0']}}</small>
+
+    <!-- <p class="data">{{profileData?.name}}</p> -->
+  </ion-item>
+  <ion-item>
+
+    <ion-label position="stacked" class="tittle">Phone </ion-label>
+
+    <ion-input class="data" required type="text" [(ngModel)]="profileData.phone_no" [readonly]="!isProfileUpdate">
+    </ion-input>
+    <small color="danger" *ngIf="error.phone_no">{{error.phone_no['0']}}</small>
+
+    <!-- <p class="data">{{profileData?.name}}</p> -->
+
+  </ion-item>
+  <div class="ion-margin-vertical">
+    <!-- <ng-container *ngFor="let item of data?.setting; let i = index">
+        <ion-item [attr.lines]="i + 1 !== data?.setting.length ? 'inset' : 'none'">
+     <p class="name" (click)="routing()">{{item?.name}} <span class="ion-float-right" >{{item?.value}} 
+     
+       
+        <label class="switch" *ngIf="item?.toggle">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+     </span></p>
+   </ion-item>
+  
+  </ng-container> -->
+
+    <!-- <ion-item (click)="notification()">
+      <p class="name"> Notification</p>
+    </ion-item> -->
+    <!-- <ion-item>
+      <p class="name"> Location<span class="ion-float-right">
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label></span></p>
+    </ion-item> -->
+    <ion-item (click)="carList()">
+      <p class="name"> Car List</p>
+    </ion-item>
+    <ion-item (click)="privacyPolicy()">
+      <p class="name"> Privacy Policy</p>
+    </ion-item>
+    <ion-item (click)="signOut()">
+      <p class="name"> Sign out</p>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label class="name">Remind Me Before</ion-label>
+      <ion-select placeholder="Please Select" name="reminder" [(ngModel)]="reminder" (ionChange)="reminderChange()">
+        <ion-select-option value="15">15 min </ion-select-option>
+        <ion-select-option value="30">30 min</ion-select-option>
+        <ion-select-option value="60">1 hour</ion-select-option>
+        <ion-select-option value="120">2 hour</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div>
+</ion-content>

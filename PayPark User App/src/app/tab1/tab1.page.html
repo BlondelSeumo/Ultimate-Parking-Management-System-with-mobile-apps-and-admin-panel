@@ -1,0 +1,91 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-title>
+      <span>P</span>ayPark
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content no-bounce>
+
+  <div #map id="map"></div>
+  <div class="first_div">
+    <ion-searchbar [(ngModel)]="search" placeholder="Search Parking.." (ionInput)="getItems($event)">
+    </ion-searchbar>
+    <div class="remain_div" *ngIf="shawTimer">
+      <h3 class="text">Remaining Time</h3>
+      <p class="timer_p"> {{timer?.timeDisp}}</p>
+    </div>
+    <ion-list *ngIf="isItemAvailable &&  search" class="searchBar">
+      <ion-list-header>
+        <ion-label class="recent">Parking Space</ion-label>
+      </ion-list-header>
+      <ion-item *ngFor="let item of space |filter:search" lines="none" class="serch_item"
+        (click)="bookMyParking(item.id)">
+
+        <ion-icon src="assets/icon-image/clock-circular-outline.svg">
+
+        </ion-icon>
+        <ion-label>
+
+          <h3>{{ item?.title }} - ${{item.price_par_hour}} /hr</h3>
+          <p class="place">{{item?.address}}</p>
+        </ion-label>
+      </ion-item>
+
+    </ion-list>
+    <ion-row *ngIf="arriving">
+      <ion-col class="first_col">
+        <h3 class="tittle">Arriving</h3>
+        <!-- <p class="data">Nov 1, 10:00AM</p> -->
+        <ion-datetime [min]="sort_data.start_dateMin" displayFormat="MMM D, hh:mm a" placeholder="Nov 1, 10:00AM"
+          [(ngModel)]="sort_data.start_date" (ionChange)="dateChanged()"></ion-datetime>
+
+      </ion-col>
+      <ion-col>
+        <h3 class="tittle">Leaving</h3>
+        <!-- <p class="data">Nov 1, 01:00PM</p> -->
+        <ion-datetime [min]="sort_data.end_dateMin" placeholder="Nov 1, 01:00AM" pickerFormat="MMM D, hh:mm a"
+          displayFormat="MMM D, hh:mm a" [(ngModel)]="sort_data.end_date">
+        </ion-datetime>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <ion-button class="location_btn">
+    <ion-icon src="assets/icon-image/location.svg"></ion-icon>
+  </ion-button>
+</ion-content>
+
+<ion-bottom-drawer [(state)]="drawerState" [minimumHeight]="minimumHeight" [dockedHeight]="dockedHeight"
+  [shouldBounce]="shouldBounce" [distanceTop]="distanceTop">
+  <div class="drawer-content ion-margin-horizontal">
+    <div class="handle_div">
+
+    </div>
+    <ion-button class="trans-btn view_btn" (click)="viewAll()">
+      View All
+    </ion-button>
+    <div class="data_div" *ngFor="let item of space.reverse()" (click)="bookMyParking(item.id)">
+      <h3 class="name_p">{{item?.title}} <span class="ion-float-right">${{item.price_par_hour}}</span></h3>
+      <p class="adress_p">
+        <ion-icon src="assets/icon-image/pin-blue.svg" class="pin_icon"></ion-icon>
+        {{item?.address}}
+      </p>
+      <p class="distance_p">
+        <ion-icon src="assets/icon-image/car-blue.svg" class="pin_icon"></ion-icon>
+        {{item?.distance}} <span class="remain_span">to destination</span> <span class="ion-float-right">
+          <ion-icon name="star" [class]="item?.avg_rating >=1? 'icon_color hydrated':'ion_default hydrated'"></ion-icon>
+          <ion-icon name="star" [class]="item?.avg_rating >=2 ? 'icon_color hydrated':'ion_default hydrated'">
+          </ion-icon>
+          <ion-icon name="star" [class]="item?.avg_rating >=3? 'icon_color hydrated':'ion_default hydrated'"></ion-icon>
+          <ion-icon name="star" [class]="item?.avg_rating >=4? 'icon_color hydrated':'ion_default hydrated'"></ion-icon>
+          <ion-icon name="star" [class]="item?.avg_rating >=5? 'icon_color hydrated':'ion_default hydrated'"></ion-icon>
+
+          ({{item.reviews_count}})
+        </span>
+      </p>
+    </div>
+
+  </div>
+</ion-bottom-drawer>

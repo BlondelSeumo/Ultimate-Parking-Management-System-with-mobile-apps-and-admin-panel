@@ -1,0 +1,27 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+
+      <ion-back-button text=""></ion-back-button>
+
+    </ion-buttons>
+    <ion-title>
+      <span>P</span>ayPark
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="main_div ion-margin-horizontal">
+    <div class="data_div">
+      <h3 class="tittle">Privacy Policy</h3>
+      <!-- <p class="detail_p">{{item?.detail}}</p> -->
+      <div [innerHTML]="data.pp">{{data.pp}}</div>
+    </div>
+    <div class="data_div">
+      <h3 class="tittle">{{item?.tittle}}</h3>
+      <p class="detail_p">{{item?.detail}}</p>
+    </div>
+  </div>
+</ion-content>

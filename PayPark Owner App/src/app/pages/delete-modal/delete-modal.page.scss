@@ -1,0 +1,22 @@
+ion-content{
+    .main_div{
+        padding-top: 12px;
+        p{
+            font-size: 20px;
+            font-family: 'Rubik_Medium';
+            color: var(--ion-color-darkblue);
+            text-align: center;
+        }
+        .btn_div{
+             display: flex;
+             ion-button{
+                 width: 49.5%;
+                 text-transform: capitalize;
+                 font-size: 18px;
+             }
+             .cancel_btn{
+                margin-right: 3px;
+             }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Review</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+
+
+  <ion-searchbar placeholder="search..." [(ngModel)]="search" clearIcon="string" class="ion-margin-top">
+  </ion-searchbar>
+  <div class="ion-margin-horizontal">
+    <p class="review_p">Review
+      <ion-button class="ion-float-right trans-btn" >Today
+        <ion-icon src="assets/icon-image/Polygon.svg"></ion-icon>
+      </ion-button>
+    </p>
+    <div class="review_div" *ngFor="let item of reviewData  |filter:search">
+      <div class="img_div">
+        <img [src]="item?.user?.imageUri" height="75" width="75">
+      </div>
+      <div class="data_div">
+        <h3 class="name">{{item?.user?.name}} ( {{item?.space?.title}} ) <p style="font-size: 12px;"
+            class="ion-float-right">
+            {{item?.created_at | date:'d-MMM-yy h:m a'}}
+          </p>
+        </h3>
+        <p class="star_p">
+          <ion-icon name="star" [class]="item?.star >=1 ? 'icon_color hydrated' :'icon_d hydrated'">
+          </ion-icon>
+          <ion-icon name="star" [class]="item?.star >=2 ? 'icon_color hydrated' :'icon_d hydrated'">
+          </ion-icon>
+          <ion-icon name="star" [class]="item?.star >=3 ? 'icon_color hydrated' :'icon_d hydrated'">
+          </ion-icon>
+          <ion-icon name="star" [class]="item?.star >=4 ? 'icon_color hydrated' :'icon_d hydrated'">
+          </ion-icon>
+          <ion-icon name="star" [class]="item?.star >=5 ? 'icon_color hydrated' :'icon_d hydrated'">
+          </ion-icon>
+        </p>
+        <p class="detail_p">
+          {{item?.description}}
+        </p>
+      </div>
+    </div>
+  </div>
+</ion-content>

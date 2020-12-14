@@ -1,0 +1,8 @@
+{
+  "name": "paypark",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,38 @@
+ion-content {
+    .text_p {
+        font-size: 16px;
+        font-family: 'Rubik_Medium';
+        color: var(--ion-color-darkblue);
+        margin-bottom: 25px;
+
+    }
+
+    ion-item-sliding {
+        box-shadow: 0px 1px 6px 0px rgba(52, 150, 255, 0.16);
+        margin-bottom: 15px;
+        border-radius: 5px;
+
+        ion-item {
+
+            .name {
+                font-size: 16px;
+                font-family: 'Rubik_Medium';
+                color: var(--ion-color-darkblue);
+
+            }
+
+        }
+
+        ion-item-options {
+            ion-item-option {
+                width: 50px;
+                --background: var(--ion-color-red);
+
+                ion-icon {
+                    height: 28px;
+                    width: 21px;
+                }
+            }
+        }
+    }
+}

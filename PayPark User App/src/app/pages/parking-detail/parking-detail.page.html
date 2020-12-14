@@ -1,0 +1,164 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+
+
+      <ion-back-button text=""></ion-back-button>
+
+
+    </ion-buttons>
+    <ion-title>PayPark</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-row>
+    <ion-col class="first_col">
+      <h3 class="tittle">Arriving</h3>
+      <p class="data">{{startTime | date:'MMM dd HH:mm' }}</p>
+    </ion-col>
+    <ion-col>
+      <h3 class="tittle">Leaving</h3>
+      <p class="data">{{endTime | date:'MMM dd HH:mm' }}</p>
+
+    </ion-col>
+  </ion-row>
+  <div class="detail_div">
+    <div class="info_div ion-margin-horizontal">
+      <h3 class="name">{{spaceData.title}}
+
+        <ion-icon color="primary" name="checkmark-circle" *ngIf="spaceData.verified"></ion-icon>
+      </h3>
+      <p class="location">
+        <ion-icon [src]="data?.parking?.icon" class="blue_icon"></ion-icon>
+        {{spaceData.address}}
+        <span class="ion-float-right">
+          <ion-icon name="star" [class]="spaceData.avg_rating >=1? 'icon_color hydrated': 'ion_default hydrated'">
+          </ion-icon>
+          <ion-icon name="star" [class]="spaceData.avg_rating >=2? 'icon_color hydrated': 'ion_default hydrated'">
+          </ion-icon>
+          <ion-icon name="star" [class]="spaceData.avg_rating >=3? 'icon_color hydrated': 'ion_default hydrated'">
+          </ion-icon>
+          <ion-icon name="star" [class]="spaceData.avg_rating >=4? 'icon_color hydrated': 'ion_default hydrated'">
+          </ion-icon>
+          <ion-icon name="star" [class]="spaceData.avg_rating >= 5? 'icon_color hydrated': 'ion_default hydrated'">
+          </ion-icon>
+          ({{spaceData.reviews_count}})
+        </span>
+
+      </p>
+      <p class="location">
+        <ion-icon [src]="data?.parking?.car" class="blue_icon"></ion-icon>
+        {{spaceData.distance}}KM <span class="text"></span>
+      </p>
+      <p class="location">
+        <ion-icon [src]="data?.parking?.icon" class="blue_icon"></ion-icon>
+        <ng-container *ngIf="spaceData.available_all_day == '1'">
+          24/7 Open
+        </ng-container>
+        <ng-container *ngIf="spaceData.available_all_day == '0'">
+          {{spaceData.open_time }} to {{spaceData.close_time}} Open
+        </ng-container>
+
+      </p>
+    </div>
+    <div class="tridev">
+      <div class="distance_div">
+        <h3 class="distance">{{hours}} hr</h3>
+        <p class="detail_p">Parking time</p>
+      </div>
+      <div class="dot_div">
+        <div class="dot">
+
+        </div>
+      </div>
+      <div class="distance_div">
+        <h3 class="distance">{{spaceData.distance}} Km</h3>
+        <p class="detail_p">To Destination</p>
+      </div>
+      <div class="dot_div">
+        <div class="dot">
+
+        </div>
+      </div>
+      <div class="distance_div">
+        <h3 class="distance">${{hours * spaceData.price_par_hour}}</h3>
+        <p class="detail_p">Total Price</p>
+      </div>
+    </div>
+    <div class="segment_div">
+      <ion-segment [(ngModel)]="category">
+        <ion-segment-button checked value="information">
+          <ion-label>information</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="review">
+          <ion-label>review</ion-label>
+        </ion-segment-button>
+
+      </ion-segment>
+      <div [ngSwitch]="category">
+
+        <div *ngSwitchCase="'information'" class="information_div">
+          <div class="img_detail ion-margin-horizontal">
+            <p class="lorem_p">
+              {{spaceData.description}}
+            </p>
+            <ion-slides pager="true" [options]="slideOpts" style="    box-shadow: 0 2px 6px 0px #e8f2fe;">
+              <ion-slide *ngFor="let i of spaceData?.images">
+                <img [src]="i?.imageUri">
+              </ion-slide>
+
+            </ion-slides>
+            <!-- <p class="img_tittle">
+              <ion-icon src="assets/icon-image/street-view.svg"></ion-icon>
+              Parking View
+            </p> -->
+          </div>
+          <div class="service_div">
+            <div class="img_div" *ngFor="let item of spaceData.facilitiesData">
+              <div class="img_info">
+                <img [src]="item.imageUri">
+              </div>
+              <div class="ps_div">
+                <p class="service_p">{{item?.title}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div *ngSwitchCase="'review'" class="review_div">
+          <div class="card_div ion-margin-horizontal" *ngFor="let item of spaceData.reviews">
+            <div class="user_img">
+              <img [src]="item?.user?.imageUri">
+            </div>
+            <div class="user_detail">
+              <h3 class="name">{{item?.user?.name}}</h3>
+              <p class="star_p">
+                <ion-icon name="star" [class]="item?.star >=1? 'icon_color hydrated':'ion_default hydrated'"></ion-icon>
+                <ion-icon name="star" [class]="item?.star >=2 ? 'icon_color hydrated':'ion_default hydrated'">
+                </ion-icon>
+                <ion-icon name="star" [class]="item?.star >=3? 'icon_color hydrated':'ion_default hydrated'"></ion-icon>
+                <ion-icon name="star" [class]="item?.star >=4? 'icon_color hydrated':'ion_default hydrated'"></ion-icon>
+                <ion-icon name="star" [class]="item?.star >=5? 'icon_color hydrated':'ion_default hydrated'"></ion-icon>
+              </p>
+              <p class="about">{{item?.description}}</p>
+            </div>
+          </div>
+          <div class="view_all ion-margin-horizontal">
+            <p class="view_p"> Total {{spaceData.reviews.length}} Review
+
+            </p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-button class="otp_btn" (click)="bookingNavigation()">
+    Reserve Parking
+  </ion-button>
+</ion-footer>

@@ -1,0 +1,53 @@
+ion-content{
+    ion-slides {
+        height: 500px;
+            ion-slide {
+                display: block;
+                height: 375px;
+                .img_div{
+                    margin-top: 60px;
+                    margin-left: 16px;
+                    margin-right: 16px;
+                .slide_name{
+                    font-size: 18px;
+                    font-family: 'Rubik_Medium';
+                    color: var(--ion-color-darkblue);
+                    margin-top: 70px;
+                }
+                .slide_info{
+                    font-size: 12px;
+                    font-family: 'Rubik_Regular';
+                    color: var(--ion-color-sky);
+                    line-height: 20px;
+                }
+                .first_h3{
+                    margin-top: 95px;
+                }
+            
+            }
+        }
+      
+    }
+    .skip{
+        --border-radius: 25px;
+                margin-top: 20px;
+                height: 46px;
+                --box-shadow: none;
+    }
+}
+
+
+
+
+
+
+
+.slides-md {
+    --bullet-background: var( --ion-color-blue)!important;
+    --bullet-background-active: var( --ion-color-blue)!important;
+}
+
+.slides-ios {
+    --bullet-background: var( --ion-color-blue)!important;
+    --bullet-background-active: var( --ion-color-blue)!important;
+}

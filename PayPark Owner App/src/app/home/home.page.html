@@ -1,0 +1,100 @@
+<ion-header no-border>
+  <ion-toolbar mode="md">
+    <ion-buttons slot="end">
+
+      <ion-button (click)="editSpace()" color="tertiary" *ngIf="type==='owner'">
+        <ion-label class="show-sm">Edit</ion-label>
+        <ion-icon class="show-sm" name="settings" slot="end"></ion-icon>
+        <ion-icon class="hide-sm" name="settings" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button (click)="parkingView()" color="primary">
+        <ion-label class="show-sm">View</ion-label>
+        <ion-icon class="show-sm" name="eye" slot="end"></ion-icon>
+        <ion-icon class="hide-sm" name="eye" slot="icon-only"></ion-icon>
+      </ion-button>
+      <ion-button (click)="mapView()" color="primary" *ngIf="type==='owner'">
+        <ion-label class=" show-sm">Map View</ion-label>
+        <ion-icon class="show-sm" name="map" slot="end"></ion-icon>
+        <ion-icon class="hide-sm" name="map" slot="icon-only"></ion-icon>
+      </ion-button>
+
+      <ion-menu-button color="dark"></ion-menu-button>
+    </ion-buttons>
+    <!-- // -->
+    <ng-container *ngIf="type==='owner'">
+      <app-space-header></app-space-header>
+
+    </ng-container>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="Search..." clearIcon="string" [(ngModel)]="search"></ion-searchbar>
+
+  <ion-label class="user_p ion-margin" color="primary">Assign Guard</ion-label>
+  <!-- <div class="sedan"> -->
+  <div class="ion-margin" style="    display: flex;
+    overflow-x: auto;">
+
+
+    <div class="ion-margin-start ion-text-center" *ngFor="let g of mySpaceData.guards">
+
+      <img [src]="g.imageUri" alt="" srcset="" height="50" width="50" style="border-radius: 50%;">
+      <h6 style="margin-top: 8px;">{{g.name}}</h6>
+    </div>
+
+  </div>
+
+  <!-- </div> -->
+  <div class="tridev">
+    <!-- <div class="distance_div">
+      <h3 class="distance">33</h3>
+      <p class="detail_p">Available Parking</p>
+    </div>
+    <div class="dot_div">
+      <div class="dot">
+
+      </div>
+    </div>
+    <div class="distance_div">
+      <h3 class="distance">17</h3>
+      <p class="detail_p">Booked Parking</p>
+    </div>
+    <div class="dot_div">
+      <div class="dot">
+
+      </div>
+    </div>
+    <div class="distance_div">
+      <h3 class="distance">50</h3>
+      <p class="detail_p">Total Parking</p>
+    </div> -->
+  </div>
+  <div class="user_div ion-margin-horizontal">
+    <p class="user_p">Booked User <span class="ion-float-right">Today</span></p>
+
+    <div class="card_div" *ngFor="let item of bookingData |filter:search" (click)="bookingDisplay(item.id)">
+      <div class="img_div">
+        <img [src]="item?.user?.imageUri" width="75" height="75">
+      </div>
+      <div class="data_div">
+        <h3 class="name">{{item?.user.name}} <span class="ion-float-right">${{item?.total_amount}}</span></h3>
+        <p class="id_p">
+          <ion-icon src="assets/icon-image/card-img.svg"></ion-icon> ID No. {{item?.order_no}}
+          <span> <br>
+            <ion-icon src="assets/icon-image/clock-img.svg"></ion-icon>{{item?.arriving_time | date:'MMM d hh:mm aaa'}}
+            To
+            {{item?.leaving_time | date:'shortTime'}}
+          </span>
+        </p>
+        <p class="car_p">
+          <ion-icon name="logo-model-s"></ion-icon>{{item?.vehicle?.model}} - {{item?.vehicle?.vehicle_no}}
+          <!-- <span class="ion-float-right">Zone - A3</!-->
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>

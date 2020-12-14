@@ -1,0 +1,108 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+
+      <!-- <ion-icon name="ios-arrow-back"> -->
+      <ion-back-button text=""></ion-back-button>
+      <!-- </ion-icon> -->
+
+    </ion-buttons>
+    <ion-title><span>P</span>ayPark</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="car_detail ion-margin-horizontal">
+    <div class="img_div">
+      <ng-container *ngIf="spaceData?.images?.length > 0">
+
+        <img [src]="spaceData?.images[0]?.imageUri" style="height: 176px;">
+      </ng-container>
+
+      <!-- <img src="assets/image/noimage.png"> -->
+      <img src="assets/image/noimage.jpg" *ngIf="spaceData?.images?.length <= 0">
+      <p class="text" style="    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 8px;">{{spaceData.title}}
+        <span class="ion-float-right">
+          <ion-icon name="star" [class]="spaceData.avg_rating >= 1 ? 'icon_color hydrated ' : 'star hydrated '">
+          </ion-icon>
+          <ion-icon name="star" [class]="spaceData.avg_rating >= 2 ? 'icon_color hydrated ' : 'star hydrated '">
+          </ion-icon>
+          <ion-icon name="star" [class]="spaceData.avg_rating >= 3 ? 'icon_color hydrated ' : 'star hydrated '">
+          </ion-icon>
+          <ion-icon name="star" [class]="spaceData.avg_rating >= 4 ? 'icon_color hydrated ' : 'star hydrated '">
+          </ion-icon>
+          <ion-icon name="star" [class]="spaceData.avg_rating >= 5 ? 'icon_color hydrated ' : 'star hydrated '">
+          </ion-icon>
+        </span></p>
+    </div>
+
+    <ion-item>
+      <p class="arriving">Arriving Time <span class="ion-float-right">
+          {{startTime | date:'MMM dd HH:mm' }}</span></p>
+    </ion-item>
+    <ion-item>
+      <p class="arriving">Leaving Time <span class="ion-float-right">
+          {{endTime | date:'MMM dd HH:mm' }}</span></p>
+    </ion-item>
+    <ion-item>
+      <p class="arriving">Total Duration <span class="ion-float-right">
+          {{hours}}</span></p>
+    </ion-item>
+    <ion-item>
+      <ion-label class="arriving" style="width: fit-content;">
+        <ng-container *ngIf="defaultVehicle.model">
+
+          {{defaultVehicle.model + defaultVehicle.vehicle_no }}
+        </ng-container>
+        <ng-container *ngIf="!defaultVehicle.model">
+
+          Please Select Vehicle
+        </ng-container>
+      </ion-label>
+      <ion-select [(ngModel)]="selectedVehicle" okText="Okay" cancelText="Dismiss"
+        (ionChange)="getDefaultVehicleById()">
+        <ion-select-option [value]="item.id" *ngFor="let item of vehicle">{{item.model}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- <ion-item class="arriving last_item" lines="none">
+      <ion-icon src="assets/icon-image/credit-card.svg" class="card"></ion-icon>
+      <ion-input value="* * * *      * * * *      * * * *      1 2 3 4"></ion-input>
+      <ion-icon name="checkmark" slot="end" class="check_mark"></ion-icon>
+    </ion-item> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" (click)="paymentMode = 'shop'" *ngIf="spaceData.offline_payment == 1">
+          <ion-card style="margin: 0px;
+    text-align: center;
+    /* margin: 0 auto; */
+    margin-top: 8px;
+    font-size: 18px;
+    color: #3496ff;
+    font-weight: bolder;
+    padding: 20px;" [ngClass]="{'shop': paymentMode === 'shop'}">
+
+            AT PARKING
+
+          </ion-card>
+
+        </ion-col>
+        <ion-col size="6" (click)="paymentMode = 'stripe'">
+          <ion-card [ngClass]="{'stripe': paymentMode === 'stripe'}">
+            <div>
+              <img src="https://woocommerce.com/wp-content/uploads/2011/12/stripe-logo-blue.png" alt="" srcset="">
+            </div>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-button class="otp_btn" (click)="bookParking()">
+    Pay ${{hours * spaceData.price_par_hour}}
+  </ion-button>
+</ion-footer>

@@ -1,0 +1,77 @@
+ion-content{
+    .backBtn{
+        font-size: 24px;
+        --color:var(--ion-color-black);
+        --padding-start: 0;
+        --padding-end: 0;
+    }
+    .hideBtn{
+        opacity: 0;
+        pointer-events: none;
+    }
+    .img_div{
+        text-align: center;
+    }
+    .mobile-div{
+        position: absolute;
+        bottom: 0;
+        background-color: var(--ion-color-white);
+        width: 100%;
+        margin-top: 100px;
+        border-radius: 20px 20px 0px 0px;
+        box-shadow: 0px -1px 5px 0px rgba(52,150,255,0.16);
+        padding-top: 15px;
+
+      .tittle_div{
+        margin-bottom: 30px;
+        padding: 0px 15px;
+        .main_tittle{
+            font-size: 20px;
+            font-family: 'Rubik_Medium';
+            color: var(--ion-color-black);
+        }
+    }
+    .detail_p{
+        color:var(--ion-color-checkb);
+        font-size: 16px;
+        font-family: 'Rubik_Regular';
+        margin-left: 25px;
+        margin-right: 25px;
+        margin-top: 10px;
+        margin-bottom: 40px;
+    }
+    .code_div{
+        margin: auto;
+        justify-content: center;
+         display: flex;
+         .input_div{
+             height: 53px;
+             width: 53px;
+             border-radius: 50%;
+             box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.16);
+             margin: 10px;
+             ion-input{
+                 height: 100%;
+                 width: 100%;
+                 text-align: center;
+                 --padding-start: 0px;
+                 font-size: 24px;
+                 --placeholder-font-style: 'Rubik_Regular';
+                 --placeholder-opacity:1;
+                 --placeholder-color:var(--ion-input-place);
+             }
+         }
+     }
+     .resend_code{
+         height: 43px;
+         .resend_btn{
+             font-size: 14px;
+             --color:var(--ion-color-black);
+             --ripple-color: transparent;
+             --color-activated: var(--ion-color-black);
+             font-family: 'Rubik_Medium';
+         }
+         margin-right: 40px;
+     }
+    }
+}

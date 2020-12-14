@@ -1,0 +1,53 @@
+<ion-content>
+  <div class="main-div  ion-padding-vertical">
+
+    <div class="img_div">
+      <ion-button class="ion-float-left backBtn" fill="clear" (click)="back()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </ion-button>
+      <ion-button class="ion-float-right hideBtn" fill="clear">
+        <ion-icon></ion-icon>
+      </ion-button>
+      <img src="assets/image/verify-img.png">
+    </div>
+    <div class="mobile-div">
+      <div class="ion-text-center tittle_div">
+        <h3 class="main_tittle">Enter Verification Code</h3>
+      </div>
+      <div class="code_div">
+        <div class="input_div">
+          <ion-input maxlength="1" type="tel" autofocus name="a" #a [(ngModel)]="opt.a"
+            (keyup)="moveFocus($event, b, '')">
+
+          </ion-input>
+        </div>
+        <div class="input_div">
+          <ion-input [(ngModel)]="opt.b" name="b" #b type="tel" (keyup)="moveFocus($event, c, a)" maxlength="1">
+
+          </ion-input>
+        </div>
+        <div class="input_div">
+          <ion-input name="c" [(ngModel)]="opt.c" #c type="tel" (keyup)="moveFocus($event, d, b)" maxlength="1">
+
+          </ion-input>
+        </div>
+        <div class="input_div">
+          <ion-input #d [(ngModel)]="opt.d" name="d" type="tel" maxlength="1" type="tel"
+            (keyup)="moveFocus($event, '', c)">
+
+          </ion-input>
+        </div>
+      </div>
+      <div class="resend_code">
+        <ion-button class="trans-btn ion-text-capitalize ion-float-right resend_btn">
+          Resend Code?
+        </ion-button>
+      </div>
+      <p class="ion-text-center detail_p"> You may receive an SMS for verification. Message and data rates may apply</p>
+      <ion-button expand="full" class="otp_btn" (click)="verifyMe()">
+        Verify
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

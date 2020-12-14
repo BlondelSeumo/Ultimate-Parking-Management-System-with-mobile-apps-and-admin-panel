@@ -1,0 +1,95 @@
+ion-content {
+    .car_detail {
+        margin-top: 15px;
+
+        .img_div {
+            margin-bottom: 10px;
+            position: relative;
+
+            img {
+                width: 100%;
+            }
+
+            .text {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                padding: 0px 5px;
+                color: var(--ion-color-white);
+                font-size: 16px;
+                font-family: 'Rubik_Medium';
+                margin-bottom: 10px;
+
+                .icon_color {
+                    color: var(--ion-color-yellow);
+                }
+
+                .star {
+                    color: var(--ion-color-star)
+                }
+            }
+        }
+
+        ion-item {
+            --padding-start: 0;
+            --inner-padding-end: 0;
+
+            .arriving {
+                width: 100%;
+                color: var(--ion-color-sky);
+                font-size: 14px;
+                font-family: 'Rubik_Medium';
+
+                span {
+                    color: var(--ion-color-darkblue);
+                }
+            }
+
+            ion-input {
+                font-size: 12px;
+                font-family: 'Rubik_Medium';
+                --color: var(--ion-color-darkblue);
+                --placeholder-color: var(--ion-color-darkblue);
+                --placeholder-font-style: 'Rubik_Medium';
+                --placeholder-opacity: 1
+            }
+
+            .add {
+                height: 20px;
+                width: 20px;
+            }
+
+            .card {
+                margin-right: 10px;
+                width: 40px;
+
+            }
+
+        }
+
+        .last_item {
+            --border-color: var(--ion-color-blue);
+            --border-radius: 5px;
+            --border-style: solid;
+            --border-width: 1px;
+            --padding-start: 10px;
+            margin-top: 10px;
+            --inner-padding-end: 10px;
+            margin-bottom: 20px;
+
+            .check_mark {
+                color: var(--ion-color-blue);
+            }
+        }
+
+    }
+
+    .shop {
+        // border: 1px solid #3496ff;
+        background-color: #f0f8ff
+    }
+
+    .stripe {
+        background-color: #f0f8ff
+    }
+}

@@ -1,0 +1,189 @@
+<ion-header>
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Edit Zone</ion-title>
+    <ion-buttons slot="end">
+      <ng-container *ngIf="!addNew">
+        <ion-button (click)="addNew = true">
+          <ion-label class="show-sm">Add</ion-label>
+          <ion-icon class="show-sm" name="add" slot="end"></ion-icon>
+          <ion-icon class="hide-sm" name="add" slot="icon-only"></ion-icon>
+        </ion-button>
+        <ion-button (click)="backMe()">
+          <ion-label class="show-sm">Back</ion-label>
+          <ion-icon class="show-sm" name="undo" slot="end"></ion-icon>
+          <ion-icon class="hide-sm" name="undo" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ng-container>
+      <ng-container *ngIf="addNew">
+
+        <ion-button (click)="newData={};addNew=false">
+          <ion-label class="show-sm">Cancel</ion-label>
+          <ion-icon class="show-sm" name="close" slot="end"></ion-icon>
+          <ion-icon class="hide-sm" name="close" slot="icon-only"></ion-icon>
+        </ion-button>
+        <ion-button (click)="saveNewZone()">
+          <ion-label class="show-sm">Save</ion-label>
+          <ion-icon class="show-sm" name="thumbs-up" slot="end"></ion-icon>
+          <ion-icon class="hide-sm" name="thumbs-up" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ng-container>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col sizeSm="12" sizeLg="6" sizeMd="6" pushSm="0" pushLg="3" pushMd="3"
+        style="box-shadow: 0px 1px 6px 0px rgba(52, 150, 255, 0.16);">
+
+        <ion-row *ngIf="addNew">
+          <ion-col style="min-height: 100px;" size="12" class="ion-text-center">
+            <h6>New Zone</h6>
+            <ion-input style="border: 1px solid #3880ff;" [(ngModel)]="newData.name" placeholder="Zone name">
+            </ion-input>
+
+          </ion-col>
+          <ion-col style="min-height: 100px;" size="12" class="ion-text-center">
+            <ion-input type="number" [(ngModel)]="newData.size" style="border: 1px solid #3880ff;"
+              placeholder="Zone slot size">
+            </ion-input>
+
+          </ion-col>
+
+        </ion-row>
+
+        <ion-segment scrollable="false" class="ion-padding" mode="ios" color="primary" [(ngModel)]="segment">
+          <ion-segment-button [value]="item.id" *ngFor="let item of zoneData;let first= first">
+            <ion-label>{{item.name}}</ion-label>
+          </ion-segment-button>
+
+        </ion-segment>
+
+        <div [ngSwitch]="segment">
+          <ng-container *ngFor="let item of zoneData">
+
+            <ion-grid class="ion-padding" *ngSwitchCase="item.id">
+
+              <ion-row>
+                <ion-col style="min-height: 100px;" size="12" class="ion-text-center">
+
+                  <ion-input [(ngModel)]="item.name" style="border: 1px solid #3880ff;"></ion-input>
+                  <ion-button (click)="editZone(item.id)" color="tertiary" fill="clear">
+                    <ion-icon slot="icon-only" name="done-all"></ion-icon>
+                  </ion-button>
+                  <ion-button (click)="deleteZone(item.id)" color="danger" fill="clear">
+                    <ion-icon slot="icon-only" name="trash"></ion-icon>
+                  </ion-button>
+
+                </ion-col>
+
+              </ion-row>
+
+              <ion-row>
+                <ng-container *ngFor="let slot of item.slots;let i = index; let even = even; let odd = odd">
+                  <ion-col size="5" class="ion-col-left ion-col-left-booked" *ngIf="even">
+                    <ion-row>
+                      <ion-col sizeSm="12" size="12" class="ion-no-padding">
+                        <ion-input [(ngModel)]="slot.name" style="border: 1px solid #3880ff;"></ion-input>
+                      </ion-col>
+                      <ion-col sizeSm="12" size="12" class="ion-no-padding">
+                        <ion-button (click)="editSlot(slot.id,slot.name)" color="tertiary" fill="clear">
+                          <ion-icon slot="icon-only" name="done-all"></ion-icon>
+                        </ion-button>
+                        <ion-button (click)="deleteSlot(slot.id)" color="danger" fill="clear">
+                          <ion-icon slot="icon-only" name="trash"></ion-icon>
+                        </ion-button>
+                      </ion-col>
+                    </ion-row>
+
+                    <!-- <h2 *ngIf="whereMyCar !== slot.id" [ngClass]="{'disable': slot.available == false  }">
+                      {{slot.name}}</h2> -->
+
+                  </ion-col>
+                  <ion-col size="2" *ngIf="even">
+
+                  </ion-col>
+                  <ion-col size="5" class="ion-col-right ion-col-right-booked" *ngIf="odd">
+                    <!-- <h2>B1</h2> -->
+                    <ion-row>
+                      <ion-col sizeSm="12" size="12" class="ion-no-padding">
+                        <ion-input [(ngModel)]="slot.name" style="border: 1px solid #3880ff;"></ion-input>
+                      </ion-col>
+                      <ion-col sizeSm="12" size="12" class="ion-no-padding">
+                        <ion-button (click)="editSlot(slot.id,slot.name)" color="tertiary" fill="clear">
+                          <ion-icon slot="icon-only" name="done-all"></ion-icon>
+                        </ion-button>
+                        <ion-button (click)="deleteSlot(slot.id)" color="danger" fill="clear">
+                          <ion-icon slot="icon-only" name="trash"></ion-icon>
+                        </ion-button>
+                      </ion-col>
+                    </ion-row>
+
+                  </ion-col>
+                </ng-container>
+
+                <!-- <ion-col size="5" class="ion-col-left" (click)="parkMyCar('A2')">
+        <h2 *ngIf="whereMyCar !== 'A2'">A2</h2>
+        <img *ngIf="whereMyCar === 'A2'" src=" assets/car/myCar.png" alt="" srcset="" style="width: 35%;"
+          class="rotate90">
+      </ion-col>
+      <ion-col size="2">
+
+      </ion-col>
+      <ion-col size="5" class="ion-col-right ion-col-right-booked">
+        <img class="rotate90" src="assets/car/blue.png" alt="" srcset="">
+      </ion-col>
+      <ion-col size="5" class="ion-col-left" (click)="parkMyCar('A3')">
+        <h2 *ngIf="whereMyCar !== 'A3'">A3</h2>
+        <img *ngIf="whereMyCar === 'A3'" src=" assets/car/myCar.png" alt="" srcset="" style="width: 35%;"
+          class="rotate90">
+      </ion-col>
+      <ion-col size="2">
+
+      </ion-col>
+      <ion-col size="5" class="ion-col-right ion-col-right-booked">
+        <img class="rotate90" src="assets/car/red.png" alt="" srcset="">
+
+      </ion-col>
+      <ion-col size="5" class="ion-col-left ion-col-left-booked">
+        <img class="rotate-90" src="assets/car/blue.png" alt="" srcset="">
+
+      </ion-col>
+      <ion-col size="2">
+
+      </ion-col>
+      <ion-col size="5" class="ion-col-right" (click)="parkMyCar('B4')">
+
+        <h2 *ngIf="whereMyCar !== 'B4'">B4</h2>
+        <img *ngIf="whereMyCar === 'B4'" src=" assets/car/myCar.png" alt="" srcset="" style="width: 35%;"
+          class="rotate-90">
+      </ion-col>
+      <ion-col size="5" class="ion-col-left" (click)="parkMyCar('A5')">
+
+        <h2 *ngIf="whereMyCar !== 'A5'">A5</h2>
+        <img *ngIf="whereMyCar === 'A5'" src=" assets/car/myCar.png" alt="" srcset="" style="width: 35%;"
+          class="rotate90">
+      </ion-col>
+      <ion-col size="2" class="road ion-text-center">
+        Exit
+      </ion-col>
+      <ion-col size="5" class="ion-col-right" (click)="parkMyCar('B5')">
+
+        <h2 *ngIf="whereMyCar !== 'B5'">B5</h2>
+        <img *ngIf="whereMyCar === 'B5'" src=" assets/car/myCar.png" alt="" srcset="" style="width: 35%;"
+          class="rotate-90">
+      </ion-col> -->
+              </ion-row>
+            </ion-grid>
+          </ng-container>
+        </div>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

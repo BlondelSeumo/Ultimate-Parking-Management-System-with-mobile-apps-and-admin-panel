@@ -1,0 +1,81 @@
+ion-content {
+    .review_p {
+        font-size: 16px;
+        color: var(--ion-color-darkblue);
+        font-family: 'Rubik_Medium';
+        margin-bottom: 20px;
+
+        span {
+            font-size: 10px;
+            color: var(--ion-color-blue);
+        }
+
+        ion-button {
+            --color: var(--ion-color-blue);
+            text-transform: capitalize;
+            font-size: 14px;
+            margin: 0px;
+            height: 15px;
+
+            ion-icon {
+                height: 8px;
+                width: 8px;
+                margin-left: 5px;
+            }
+        }
+    }
+
+    .review_div {
+        display: flex;
+        margin-bottom: 10px;
+
+        .img_div {
+            width: 80px;
+
+            img {
+                //width: 100%;
+                border-radius: 2px;
+            }
+        }
+
+        .data_div {
+            width: 100%;
+            padding-left: 10px;
+
+            .name {
+                font-size: 18px;
+                color: var(--ion-color-darkblue);
+                font-family: 'Rubik_Medium';
+                margin: 0px;
+            }
+
+            .star_p {
+                margin-bottom: 8px;
+                margin-top: 0px;
+                // height: 15px;
+                display: flex;
+                align-items: center;
+
+                ion-icon {
+                    height: 20px;
+                    width: 20px;
+                }
+
+                .icon_d {
+                    color: var(--ion-color-star);
+                }
+
+                .icon_color {
+                    color: var(--ion-color-yellow);
+                }
+            }
+
+            .detail_p {
+                font-size: 14px;
+                font-family: 'Rubik_Regular';
+                color: var(--ion-color-sky);
+                margin: 0px;
+            }
+        }
+    }
+}

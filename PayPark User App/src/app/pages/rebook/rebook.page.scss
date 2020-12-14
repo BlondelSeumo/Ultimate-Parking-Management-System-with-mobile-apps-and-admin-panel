@@ -1,0 +1,82 @@
+ion-content{
+    .remain_div{
+        text-align: center;
+        .text{
+            font-size: 14px;
+            font-family: 'Rubik_Medium';
+            color: var(--ion-color-darkblue);
+            margin-bottom: 0px;
+        }
+        .time_p{
+            font-size: 30px;
+            font-family: 'Changa-Medium';
+            color:var(--ion-color-blue);
+            margin-top: 0px;
+            margin-bottom: 10px;
+        }
+        .question_div{
+            height: 93px;
+            background-color: var(--ion-colo-backg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .quest_p{
+                font-size: 16px;
+                font-family: 'Rubik_Medium';
+                color: var(--ion-color-darkblue);
+                text-transform: uppercase;
+                text-align: center;
+            }
+        }
+        .choose_time{
+            font-size: 16px;
+            font-family: 'Rubik_Medium';
+            color: var(--ion-color-blue);
+            margin-bottom: 90px;
+        }
+       
+    }
+    .total_div{
+        height: 60px;
+        background-color: var(--ion-colo-backg);
+        display: flex;
+        align-items: center;
+        .total_p{
+            font-size: 16px;
+            font-family: 'Rubik_Medium';
+            color: var(--ion-color-darkblue);
+            width:100%;
+            padding: 0px 16px;
+            span{
+                color: var(--ion-color-red);
+            }
+        }
+    }
+   
+    .last_div{
+        .card_h{
+            font-size: 16px;
+            font-family: 'Rubik_Medium';
+            color: var(--ion-color-blue);
+        }
+        .last_item{
+            --border-color:var(--ion-color-blue);	
+            --border-radius:5px;
+            --border-style:solid;
+            --border-width:1px;
+            --padding-start: 10px;
+            margin-top: 10px;
+            --inner-padding-end:10px;
+            margin-bottom: 20px;
+            .check_mark{
+                    color: var(--ion-color-blue);
+            }
+            ion-input{
+                font-size: 12px;
+                font-family: 'Rubik_Medium';
+                color: var(--ion-color-darkblue);
+            }
+        }
+     
+    }
+}

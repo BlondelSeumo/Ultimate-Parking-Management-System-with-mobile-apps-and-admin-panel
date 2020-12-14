@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Live Parking View</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col sizeSm="12" sizeLg="6" sizeMd="6" pushSm="0" pushLg="3" pushMd="3"
+        style="box-shadow: 0px 1px 6px 0px rgba(52, 150, 255, 0.16);">
+
+
+        <ion-segment class="ion-padding" mode="ios" color="primary" [(ngModel)]="segment" style="    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1;">
+          <ion-segment-button [value]="item.id" *ngFor="let item of zoneData;let first= first" [checked]="first">
+            <ion-label>{{item.name}}</ion-label>
+          </ion-segment-button>
+
+        </ion-segment>
+
+
+        <div [ngSwitch]="segment">
+          <ng-container *ngFor="let item of zoneData">
+            <ion-grid class="ion-padding" *ngSwitchCase="item.id" style="margin: 60px 0px;">
+              <ion-row>
+                <ng-container *ngFor="let slot of item.slots;let i = index; let even = even; let odd = odd">
+                  <ion-col size="5" class="ion-col-left ion-col-left-booked" 
+                    *ngIf="even">
+
+                    <h2 *ngIf="slot.available == 1">{{slot.name}}
+                    </h2>
+                    <img *ngIf="slot.available == 0" src=" assets/car/myCar.png" alt="" srcset="" style="width: 35%;"
+                      class="rotate-90">
+
+                  </ion-col>
+                  <ion-col size="2" *ngIf="even">
+
+                  </ion-col>
+                  <ion-col size="5" class="ion-col-right ion-col-right-booked" *ngIf="odd">
+                    <!-- <h2>B1</h2> -->
+                    <h2 *ngIf="slot.available == 1">{{slot.name}}
+                    </h2>
+                    <img *ngIf="slot.available == 0" src=" assets/car/myCar.png" alt="" srcset="" style="width: 35%;"
+                      class="rotate-90">
+
+                  </ion-col>
+                </ng-container>
+              </ion-row>
+            </ion-grid>
+          </ng-container>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

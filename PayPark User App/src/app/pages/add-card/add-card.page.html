@@ -1,0 +1,120 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+
+      <ion-back-button text=""></ion-back-button>
+
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_div ion-margin-horizontal">
+    <div class="card_div">
+      <h3 class="name">
+        <span>P</span>ayPark
+      </h3>
+      <div class="img_div">
+        <ion-icon class="ion-float-right" src="assets/icon-image/white-card.svg"></ion-icon>
+      </div>
+
+      <div class="dot_div">
+        <div class="first">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="first">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="first">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+        <div class="first">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+
+      </div>
+      <ion-label>
+        <h3 class="exprires">EXPIRES</h3>
+        <p class="format">MM/YY</p>
+      </ion-label>
+    </div>
+    <div class="col_div">
+
+      <ion-label class="card_label">
+        CARD NUMBER
+      </ion-label>
+
+      <ion-item lines="none">
+        <ion-input value="4319  5312  0215  1289">
+
+        </ion-input>
+        <div class="check_div">
+          <ion-icon name="checkmark"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-row>
+
+        <ion-col class="ion-no-padding" size="6">
+          <ion-label class="card_label">
+            EXPRIRATION DATE
+          </ion-label>
+          <ion-item lines="none">
+            <ion-input value="09 / 15">
+
+            </ion-input>
+            <div class="check_div">
+              <ion-icon name="checkmark"></ion-icon>
+            </div>
+          </ion-item>
+        </ion-col>
+
+        <ion-col class="ion-no-padding" size="5" offset="1">
+          <ion-label class="card_label">
+            CVV
+          </ion-label>
+          <ion-item lines="none">
+            <ion-input value="****">
+
+            </ion-input>
+            <div class="check_div">
+              <ion-icon name="checkmark"></ion-icon>
+            </div>
+          </ion-item>
+
+
+        </ion-col>
+      </ion-row>
+      <ion-label class="card_label">
+        CARD HOLDER'S NAME
+      </ion-label>
+      <ion-item lines="none">
+        <ion-input value="Randy Betancourt">
+
+        </ion-input>
+
+        <div class="check_div">
+          <ion-icon name="checkmark"></ion-icon>
+        </div>
+      </ion-item>
+
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-button class="otp_btn">
+    Save Card
+  </ion-button>
+</ion-footer>

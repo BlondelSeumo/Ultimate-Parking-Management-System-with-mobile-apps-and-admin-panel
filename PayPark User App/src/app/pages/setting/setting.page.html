@@ -1,0 +1,53 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <span>P</span>ayPark
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="ion-margin-vertical">
+    <!-- <ng-container *ngFor="let item of data?.setting; let i = index">
+        <ion-item [attr.lines]="i + 1 !== data?.setting.length ? 'inset' : 'none'">
+     <p class="name" (click)="routing()">{{item?.name}} <span class="ion-float-right" >{{item?.value}} 
+     
+       
+        <label class="switch" *ngIf="item?.toggle">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label>
+     </span></p>
+   </ion-item>
+  
+  </ng-container> -->
+    <ion-item>
+      <p class="name"> Phone Number<span class="ion-float-right">+44 9033976754</span></p>
+
+
+    </ion-item>
+    <ion-item (click)="notification()">
+      <p class="name"> Notification</p>
+    </ion-item>
+    <ion-item>
+      <p class="name"> Location<span class="ion-float-right">
+          <label class="switch">
+            <input type="checkbox" checked>
+            <span class="slider round"></span>
+          </label></span></p>
+    </ion-item>
+    <ion-item (click)="carList()">
+      <p class="name"> Car/Card Saved List</p>
+    </ion-item>
+    <ion-item (click)="privacyPolicy()">
+      <p class="name"> Privacy Policy</p>
+    </ion-item>
+    <ion-item lines="none" (click)="signOut()">
+      <p class="name"> Sign out</p>
+    </ion-item>
+  </div>
+</ion-content>

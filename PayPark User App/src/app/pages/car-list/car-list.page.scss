@@ -1,0 +1,76 @@
+ion-content{
+    .main_div{
+        padding-top: 20px;
+    }
+    ion-segment{
+        box-shadow: 0px 2px 6px 0px rgba(52, 150, 255, 0.16);
+        border-radius: 25px;
+        ion-segment-button{
+            --background-checked:var(--ion-color-blue);
+            --color-checked:var(--ion-color-white);
+            --color:  var(--ion-color-blue);
+            --padding-start: 0;
+            --border-radius:25px;
+            ion-label{
+                font-size: 16px;
+                font-family: 'Rubik_Medium';
+            
+                text-transform: capitalize;
+            }
+        }
+    }
+    .vehicle_div{
+        .first_p{
+            font-size: 16px;
+            font-family: 'Rubik_Medium';
+            color: var(--ion-color-darkblue);
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        ion-item-sliding{
+            box-shadow:0px 1px 6px 0px rgba(52,150,255,0.16);
+            margin-bottom: 15px;
+            border-radius: 5px;
+            ion-item{
+                
+                .name{
+                    font-size: 16px;
+                    font-family: 'Rubik_Medium';
+                    color: var(--ion-color-darkblue);
+                    span{
+                        margin-left: 10px;
+                    }
+                }
+                ion-radio{
+                    --color-checked:var(--ion-color-blue);
+                }
+            }
+            ion-item-options{
+                ion-item-option{
+                    width: 50px;
+                    --background:var(--ion-color-red);
+                    ion-icon{
+                        height: 28px;
+                        width: 21px;
+                    }
+                }
+            }
+        }
+    }
+    .car_div{
+      
+        ion-label{
+            font-size: 14px!important;
+            ion-icon{
+                height: 18px;
+                width: 28px;
+            }
+        }
+    }
+}
+
+
+
+.segment-button-checked{
+    border-radius: 50px;
+}

@@ -1,0 +1,41 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <span>P</span>ayPark
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main_div ion-margin-horizontal">
+    <div class="review_div ion-text-center">
+      <h3 class="tittle">Rate your experience</h3>
+      <p class="star_p">
+        <ion-icon name="star" [class]="rate >= 1 ? 'icon_color hydrated' : 'icon_default hydrated'" (click)="rate = 1">
+        </ion-icon>
+        <ion-icon name="star" [class]="rate >= 2 ? 'icon_color hydrated' : 'icon_default hydrated'" (click)="rate = 2">
+        </ion-icon>
+        <ion-icon name="star" [class]="rate >= 3 ? 'icon_color hydrated' : 'icon_default hydrated'" (click)="rate = 3">
+        </ion-icon>
+        <ion-icon name="star" [class]="rate >= 4 ? 'icon_color hydrated' : 'icon_default hydrated'" (click)="rate = 4">
+        </ion-icon>
+        <ion-icon name="star" [class]="rate >= 5 ? 'icon_color hydrated' : 'icon_default hydrated'" (click)="rate = 5">
+        </ion-icon>
+      </p>
+    </div>
+    <div class="write">
+      <h3 class="heading">Write a Review</h3>
+      <ion-textarea [(ngModel)]="msg" rows="6"
+        value="Integer at faucibus urna. Nullam condimentum leo id elit sagittis auctor. Curabitur elementum nunc a leo imperdiet, nec elementum diam elementum.Etiam">
+      </ion-textarea>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-button class="otp_btn" (click)="addReview()">
+    Submit
+  </ion-button>
+</ion-footer>

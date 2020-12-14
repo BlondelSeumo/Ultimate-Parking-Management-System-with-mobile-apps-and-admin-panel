@@ -1,0 +1,258 @@
+<ion-header>
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>New Space</ion-title>
+    <ion-buttons slot="end">
+
+      <ion-button (click)="parkSpace()">
+        <ion-label class="show-sm">Save</ion-label>
+        <ion-icon class="show-sm" name="thumbs-up" slot="end"></ion-icon>
+        <ion-icon class="hide-sm" name="thumbs-up" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content style="margin-bottom: 16px;">
+  <div class="img_div ion-text-center">
+    <img src="assets/image/park-img.png">
+    <h3 class="tittle">Rent your space</h3>
+    <p class="text ion-padding-horizontal">Fill all detail and then sit back to see the money roll in!</p>
+  </div>
+  <div class="detail_div">
+    <ion-grid class="ion-no-padding ion-margin-top">
+      <ion-row>
+        <!-- sizeSm="12" sizeXl="8" sizeLg="10" sizeMd="10" pushLg="1" pushMd="1" pushXl="2" -->
+        <ion-col style="box-shadow: 0px 1px 6px 0px rgba(52, 150, 255, 0.16);" sizeSm="12" sizeXl="8" sizeLg="10"
+          sizeMd="10" pushLg="1" pushMd="1" pushXl="2">
+          <ion-segment color="primary" mode="md" [(ngModel)]="segment">
+            <ion-segment-button checked="true" value="basic">
+              <ion-label>Basic</ion-label>
+              <ion-icon name="information-circle"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="zone">
+              <ion-label>Zone</ion-label>
+              <ion-icon name="wifi"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="map">
+              <ion-label>Map</ion-label>
+              <ion-icon name="pin"></ion-icon>
+            </ion-segment-button>
+            <ion-segment-button value="guard">
+              <ion-label>Guard</ion-label>
+              <ion-icon name="person"></ion-icon>
+            </ion-segment-button>
+          </ion-segment>
+          <div [ngSwitch]="segment">
+            <ng-container *ngSwitchCase="'basic'">
+              <form class="ion-margin-horizontal" #f="ngForm">
+                <p class="form_p">Add Parking Detail</p>
+                <ion-item class="item_div">
+                  <ion-label position="stacked" class="lbl_name" mode="md">Space Name</ion-label>
+                  <ion-input required type="text" name="title" [(ngModel)]="data.title">
+                  </ion-input>
+                  <strong color="danger" *ngIf="error.title">{{error.title['0']}}</strong>
+                </ion-item>
+                <ion-item class="item_div">
+                  <ion-label class="lbl_name" position="stacked">Description</ion-label>
+                  <ion-textarea name="description" [(ngModel)]="data.description">
+                  </ion-textarea>
+                  <strong color="danger" *ngIf="error.description">{{error.description['0']}}</strong>
+                </ion-item>
+
+                <ion-item class="item_div">
+                  <ion-label position="stacked" class="lbl_name" mode="md">Phone Number</ion-label>
+                  <ion-input required type="text" name="phone_number" [(ngModel)]="data.phone_number">
+                  </ion-input>
+                  <strong color="danger" *ngIf="error.phone_number">{{error.phone_number['0']}}</strong>
+                </ion-item>
+                <ion-item class="item_div">
+                  <ion-label position="stacked" class="lbl_name" mode="md">Price (Par Hour)</ion-label>
+                  <ion-input required type="text" name="price_par_hour" [(ngModel)]="data.price_par_hour">
+                  </ion-input>
+                  <strong color="danger" *ngIf="error.price_par_hour">{{error.price_par_hour['0']}}</strong>
+                </ion-item>
+
+                <ion-item class="item_div">
+                  <ion-label position="stacked" class="lbl_name">Facilities</ion-label>
+                  <ion-select multiple="true" name="facilities" [(ngModel)]="data.facilities">
+                    <ion-select-option [value]="f.id" *ngFor="let f of facilities">{{f.title}}</ion-select-option>
+
+                  </ion-select>
+                  <strong color="danger" *ngIf="error.facilities">{{error.facilities['0']}}</strong>
+                </ion-item>
+                <ion-item class="item_div">
+                  <ion-label color="primary">Available 24hour</ion-label>
+                  <ion-toggle [(ngModel)]="data.available_all_day" name="available_all_day" mode="md"></ion-toggle>
+                  <strong color="danger" *ngIf="error.available_all_day">{{error.available_all_day['0']}}</strong>
+                </ion-item>
+
+                <ion-row *ngIf="!data.available_all_day">
+                  <ion-col size="6" class="ion-no-padding">
+                    <ion-item class="item_div">
+                      <ion-label position="stacked" class="lbl_name" mode="md">Open Time</ion-label>
+                      <ion-datetime display-format="h:mm A" picker-format="h:mm A" value="1990-02-19T07:43Z"
+                        [(ngModel)]="data.open_time" name="open_time" minuteValues="0,15,30,45"></ion-datetime>
+                      <strong color="danger" *ngIf="error.open_time">{{error.open_time['0']}}</strong>
+                    </ion-item>
+
+                  </ion-col>
+                  <ion-col size="6" class="ion-no-padding">
+                    <ion-item class="item_div">
+                      <ion-label position="stacked" class="lbl_name" mode="md">Close Time</ion-label>
+                      <ion-datetime display-format="h:mm A" picker-format="h:mm A" [(ngModel)]="data.close_time"
+                        name="close_time" minuteValues="0,15,30,45">
+                      </ion-datetime>
+                      <strong color="danger" *ngIf="error.close_time">{{error.close_time['0']}}</strong>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+
+
+
+                <ion-item class="item_div">
+                  <ion-label color="primary">Offline Payment</ion-label>
+                  <ion-toggle [(ngModel)]="data.offline_payment" name="offline_payment" mode="md"></ion-toggle>
+                  <strong color="danger" *ngIf="error.offline_payment">{{error.offline_payment['0']}}</strong>
+                </ion-item>
+
+
+                <ion-item class="item_div">
+                  <ion-label position="stacked" class="lbl_name" mode="md">Address</ion-label>
+                  <ion-input required type="text" [(ngModel)]="data.address" name="address">
+                  </ion-input>
+                  <strong color="danger" *ngIf="error.address">{{error.address['0']}}</strong>
+                </ion-item>
+
+                <ion-row>
+                  <ion-col size="6" class="ion-no-padding">
+                    <ion-item class="item_div">
+                      <ion-label position="stacked" class="lbl_name" mode="md">City</ion-label>
+                      <ion-input required type="text" [(ngModel)]="data.city" name="city">
+                      </ion-input>
+
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="6" class="ion-no-padding">
+                    <ion-item class="item_div">
+                      <ion-label position="stacked" class="lbl_name" mode="md">Postal Code</ion-label>
+                      <ion-input required type="text" [(ngModel)]="data.postal" name="postal">
+                      </ion-input>
+
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col size="6" class="ion-no-padding">
+                    <ion-item lines="none" class="item_div">
+                      <ion-label position="stacked" class="lbl_name" mode="md">State</ion-label>
+                      <ion-input required type="text" [(ngModel)]="data.state" name="state">
+                      </ion-input>
+
+                    </ion-item>
+                  </ion-col>
+                  <ion-col size="6" class="ion-no-padding">
+                    <ion-item lines="none" class="item_div">
+                      <ion-label position="stacked" class="lbl_name" mode="md">Country</ion-label>
+                      <ion-input required type="text" [(ngModel)]="data.country" name="country">
+                      </ion-input>
+
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+
+
+              </form>
+            </ng-container>
+            <ng-container *ngSwitchCase="'zone'">
+              <form class="ion-margin-horizontal">
+                <p class="form_p">Add Zone Detail</p>
+                <ion-grid>
+                  <ion-row>
+                    <ng-container *ngFor="let zone of parkingZone;let i =index">
+
+
+                      <ion-col size="6" class="ion-no-padding">
+                        <ion-item class="item_div">
+                          <ion-label position="stacked" class="lbl_name" mode="md">Space Name</ion-label>
+                          <ion-input [ngModelOptions]="{standalone: true}" required type="text" [(ngModel)]="zone.name">
+                          </ion-input>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col size="6" class="ion-no-padding">
+                        <ion-item class="item_div">
+                          <ion-label position="stacked" class="lbl_name" mode="md">Size</ion-label>
+                          <ion-input [ngModelOptions]="{standalone: true}" required type="text" [(ngModel)]="zone.size">
+                          </ion-input>
+                          <ion-button style="margin-top: 35px;" slot="end" fill="clear" size="small"
+                            (click)="removeZone(i)">
+                            <ion-icon name="trash" slot="icon-only" color="danger"></ion-icon>
+                          </ion-button>
+                        </ion-item>
+                      </ion-col>
+                    </ng-container>
+
+                  </ion-row>
+                </ion-grid>
+
+                <ion-row>
+                  <ion-col class="ion-no-padding" sizeXs="12" sizeSm="12">
+                    <ion-item lines="none" button="true" detail="false" (click)="addNewZone()">
+                      <ion-label class="ion-no-margin" color="primary">Add New Zone</ion-label>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+
+
+              </form>
+            </ng-container>
+            <ng-container *ngSwitchCase="'map'">
+              <form class="ion-margin-horizontal">
+                <p class="form_p">Where You are?</p>
+
+                <ion-grid>
+                  <ion-row>
+                    <ion-col size="12" class="ion-no-padding">
+                      <agm-map [latitude]="lat" [longitude]="lng" [mapTypeControl]='true' [mapTypeId]="'satellite'">
+                        <agm-marker [markerDraggable]="markerD" [latitude]="lat" [longitude]="lng"
+                          (dragEnd)="markerChange($event)"></agm-marker>
+                      </agm-map>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+
+              </form>
+            </ng-container>
+            <ng-container *ngSwitchCase="'guard'">
+              <form class="ion-margin-horizontal">
+                <p class="form_p">Please Provide Workforce?</p>
+
+                <ion-item class="item_div">
+                  <ion-label position="stacked" class="lbl_name">Guard List</ion-label>
+                  <ion-select multiple="true" name="guardList" [(ngModel)]="data.guardList">
+                    <ion-select-option [value]="f.id" *ngFor="let f of guardData">{{f.name}}</ion-select-option>
+
+                  </ion-select>
+                </ion-item>
+
+
+                <ion-row>
+                  <ion-col class="ion-no-padding" sizeXs="12" sizeSm="12">
+                    <ion-item lines="none" button="true" detail="false" (click)="addNewGuard()">
+                      <ion-label class="ion-no-margin" color="primary">Add New Guard</ion-label>
+                    </ion-item>
+                  </ion-col>
+                </ion-row>
+
+              </form>
+            </ng-container>
+
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+</ion-content>

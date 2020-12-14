@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+
+    </ion-buttons>
+    <ion-title>Transaction</ion-title>
+    <ion-buttons slot="end">
+
+      <ion-button >
+
+        <ion-label class="show-sm">Earning</ion-label>
+        &nbsp;
+        <ion-icon class="show-sm" name="cash"></ion-icon>
+        &nbsp; <ion-icon class="hide-sm" name="cash"></ion-icon>
+        &nbsp;
+        <ion-label>${{transactionData.grandTotal}}</ion-label>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="search..." [(ngModel)]="search" clearIcon="string" class="ion-margin-top"></ion-searchbar>
+  <div class="tridev">
+    <div class="distance_div" (click)="changeFil('day')">
+      <h3 class="distance" [ngStyle]="{'color': type=== 'day' ? '#3496ff' : ''}">Today</h3>
+
+    </div>
+    <div class="dot_div">
+      <div class="dot">
+
+      </div>
+    </div>
+    <div class="distance_div" (click)="changeFil('week')">
+      <h3 class="distance" [ngStyle]="{'color': type=== 'week' ? '#3496ff' : ''}">Week</h3>
+
+    </div>
+    <div class="dot_div">
+      <div class="dot">
+      </div>
+    </div>
+    <div class="distance_div" (click)="changeFil('month')">
+      <h3 class="distance" [ngStyle]="{'color': type=== 'month' ? '#3496ff' : ''}">Month</h3>
+    </div>
+  </div>
+  <ion-row>
+    <ion-col class="first_col">
+      <h3 class="tittle">Start Date</h3>
+
+      <ion-datetime displayFormat="MMM D, hh:mm a" placeholder="November 1" [(ngModel)]="sort_data.start_date">
+      </ion-datetime>
+
+    </ion-col>
+    <ion-col>
+      <h3 class="tittle">End Date</h3>
+      <ion-datetime placeholder="December 30" pickerFormat="MMM D, hh:mm a" displayFormat="MMM D, hh:mm a"
+        [(ngModel)]="sort_data.end_date"></ion-datetime>
+    </ion-col>
+  </ion-row>
+  <div class="data_div">
+    <p class="user_p ion-margin-horizontal">User Name <span class="ion-float-right" (click)="searchMe()">Search By
+        Date</span></p>
+    <ion-item *ngFor="let item of transactionData.data | filter:search">
+      <p class="name_p">{{item?.user?.name}}<span class="ion-float-right">${{item?.total}}</span></p>
+    </ion-item>
+
+  </div>
+</ion-content>

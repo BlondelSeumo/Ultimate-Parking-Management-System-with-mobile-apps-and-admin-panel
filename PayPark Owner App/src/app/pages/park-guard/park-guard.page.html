@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>New Guard</ion-title>
+    <ion-buttons slot="end">
+
+      <ion-button (click)="gaurdList()">
+        <ion-label class="show-sm">Save</ion-label>
+        <ion-icon class="show-sm" name="thumbs-up" slot="end"></ion-icon>
+        <ion-icon class="hide-sm" name="thumbs-up" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="img_div ion-text-center">
+    <img src="assets/image/park-img.png">
+    <h3 class="tittle">Security Guard</h3>
+    <p class="text ion-padding-horizontal">Provide Better Security Parking Space</p>
+  </div>
+  <div class="detail_div">
+    <!-- <ion-button class="ion-float-right trans-btn">add guard</ion-button></p> -->
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col sizeSm="12" sizeLg="8" sizeMd="8" pushSm="0" pushLg="2" pushMd="2">
+          <p class="form_p ion-margin-horizontal">Security Guard Detail
+
+            <form class="ion-margin-horizontal">
+              <!-- <span class="ion-float-right">add guard</span> -->
+              <ion-item class="item_div">
+                <ion-label position="stacked" class="lbl_name" mode="md">Name</ion-label>
+                <ion-input required type="text" name="name" [(ngModel)]="data.name"></ion-input>
+                <strong color="danger" *ngIf="error.name">{{error.name['0']}}</strong>
+              </ion-item>
+              <ion-item class="item_div">
+                <ion-label position="stacked" class="lbl_name" mode="md">Email</ion-label>
+                <ion-input required type="email" name="email" [(ngModel)]="data.email"></ion-input>
+                <strong color="danger" *ngIf="error.email">{{error.email['0']}}</strong>
+              </ion-item>
+              <ion-item class="item_div">
+                <ion-label position="stacked" class="lbl_name" mode="md">Phone number</ion-label>
+                <ion-input required type="text" name="phone_no" [(ngModel)]="data.phone_no"></ion-input>
+                <strong color="danger" *ngIf="error.phone_no">{{error.phone_no['0']}}</strong>
+              </ion-item>
+              <ion-item lines="none" class="item_div last_item">
+                <ion-label position="stacked" class="lbl_name" mode="md">Password</ion-label>
+                <ion-input required type="Password" name="password" [(ngModel)]="data.password"></ion-input>
+                <strong color="danger" *ngIf="error.password">{{error.password['0']}}</strong>
+              </ion-item>
+            </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -1,0 +1,274 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+
+.otp_btn{
+    --background:var(--ion-color-blue); 
+    --color:var(--ion-color-white);
+    font-size: 16px;
+    font-family: 'Rubik_Medium';
+    height: 50px;
+    --border-radius:0px;
+    margin: 0px;
+    --background-activated:var(--ion-color-blue); 
+    width: 100%;
+    letter-spacing: 0.00em;
+    text-transform: uppercase;
+    }
+
+    .trans-btn{
+        --background: transparent;
+        --box-shadow: none;
+        --border: none;
+        --padding-start:none;
+        font-size: 16px;
+        --padding-end:none;
+        font-family: 'Rubik_Medium';
+        --background-activated: none;
+        margin-right: 0px;
+    }
+    ion-header{
+        ion-toolbar{
+            ion-title{
+                font-size: 18px;
+                font-family: 'Rubik_Medium';
+               color: var(--ion-color-darkblue);
+                position: absolute;
+                top: 0;
+                left: 0;
+                padding: 0 90px 1px;
+                width: 100%;
+                height: 100%;
+                text-align: center;
+                span{
+                    color: var(--ion-color-blue);
+                }
+                }
+              
+               
+                ion-buttons {
+                    position: relative;
+                 
+                   
+                    ion-button {
+                        color: var(--ion-color-black)!important;
+                    }
+                  
+                }
+        }
+       
+    }
+    .searchbar-input.sc-ion-searchbar-md {
+        -webkit-padding-start: 30px!important;
+        padding-inline-start: 30px!important;
+    }
+    
+    .sc-ion-searchbar-md-h {
+        padding-left: unset;
+        padding-right: unset;
+        -webkit-padding-start: 8px;
+        padding-inline-start: 16px;
+        -webkit-padding-end: 8px;
+        padding-inline-end: 16px;
+    }
+    
+    .searchbar-input-container.sc-ion-searchbar-ios {
+        contain: none;
+    }
+    
+    .searchbar-search-icon.sc-ion-searchbar-ios {
+        margin-left: calc(50% - 60px);
+        left: inherit;
+        top: 11px;
+        right: 18px;
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        contain: strict;
+        color: var(--ion-color-darkblue)!important;
+    }
+    
+    .searchbar-search-icon.sc-ion-searchbar-md {
+        left: auto;
+        top: 11px;
+        right: 18px;
+        width: 18px;
+        height: 18px;
+        color: var(--ion-color-darkblue)!important;
+    }
+    
+    .searchbar-input {
+        padding-left: 10px;
+        background: #FFF !important;
+        border-radius: 30px !important;
+        height: 40px !important;
+        max-width: 400px;
+        font-size: 13px !important;
+        font-family: 'Rubik_Medium_I'!important;
+        border: 1px solid transparent;
+         color: var(--ion-color-darkblue)!important;
+        box-shadow: 0px 2px 6px 0px rgba(52,150,255,0.16)!important;
+        ion-icon {
+            right: 16px !important;
+            left: auto !important;
+            color: var(--ion-color-darkblue);
+        }
+    }
+  
+
+    .mymodal{
+        --height: 151px;
+        --max-height: 200px;
+      //  padding: 0px 20px;
+      --width: 90%;
+        --border-radius: 30px 30px 0px 0px;
+        --box-shadow: 0px -2px 6px 0px rgba(52,150,255,0.16);
+        .modal-wrapper {
+            position: absolute;
+            bottom: 0;
+          }
+    }
+
+    .popover{
+        --height: 75px;
+        --max-height: 100px;
+        --width:140px;
+      box-shadow: 0px 1px 6px 0px rgba(52,150,255,0.16);
+        --border-radius: 5px;
+      //--background:var(--ion-color-darkblue);
+          .popover-content{
+            top: 310.5px!important;
+             left: inherit!important;
+             right: 16px!important;
+             transform-origin: right top!important;
+           
+            
+          }
+    }
+
+    .picker-wrapper.sc-ion-picker-md {
+        --background: var(--ion-color-blue)!important;
+        border-radius: 10px 10px 0px 0px ;
+      }
+ 
+      .picker-opt.picker-opt-selected, .picker-prefix, .picker-suffix {
+        color: var(--ion-color-white,#FFFFFF);
+    }
+    .picker-button.sc-ion-picker-md, .picker-button.activated.sc-ion-picker-md {
+        color: var(--ion-color-white,#FFFFFF);
+    }
+    .picker-opt {
+        color: var(--ion-color-picker);
+    }
+    .sc-ion-picker-md-h {
+       
+        --border-color: var(--ion-item-border-color,var(--ion-color-blue,var(--ion-color-step-150,rgba(0,0,0,0.13))));
+       
+    }
+
+/// info window 
+
+    .gm-ui-hover-effect {
+        display: none !important;
+    }
+
+    .gm-style .gm-style-iw {
+       // background-color:var(--ion-color-darkblue) !important;
+        top: 0 !important;
+        left: 0 !important;
+        //width: 100% !important;
+        min-width: 75px;
+        height: 100% !important;
+        min-height: 35px !important;
+       padding: 0;
+        display: block !important;
+        border-radius: 16px;
+     }    
+
+     /*style the paragraph tag*/
+    //  .gm-style .gm-style-iw #google-popup p{
+    //     padding: 10px;
+    //  }
+
+
+    /*style the annoying little arrow at the bottom*/
+    // .gm-style div div div div div div div div {
+    //     background-color: var(--ion-color-darkblue) !important;
+    //     margin: 0;
+    //     padding: 0;
+    //     top: 0;
+    //     color: #fff;
+    //     font-size: 16px;
+    // }
+
+    /*style the link*/
+    // .gm-style div div div div div div div div a {
+    //     color: #f1f1f1;
+    //     font-weight: bold;
+    //     background-color: var(--ion-color-blue)!important;
+    // }
+    // .gm-style .gm-style-iw-t::after {
+    //     background: var(--ion-color-darkblue);
+    // }
+    .gm-style-iw-d{
+        height: 50px;
+        overflow: hidden!important;
+        div{
+            height: 100%;
+            #content{
+                display:flex;
+                background-color: var(--ion-color-darkblue);
+                padding-top: 8px;
+                justify-content: center;
+                height: 100%;
+                p{
+                  margin: 0px;
+                  font-size: 10px;
+                  font-family: 'Changa-Medium';
+                  color: var(--ion-color-white);
+                }
+              
+              }
+              .simple{
+                display:flex;
+                background-color: var(--ion-color-blue);
+                padding-top: 8px;
+                justify-content: center;
+                height: 100%;
+                p{
+                    margin: 0px;
+                    font-size: 10px;
+                    font-family: 'Changa-Medium';
+                    color: var(--ion-color-white);
+                  }
+              }
+             
+        }
+      
+          
+    }

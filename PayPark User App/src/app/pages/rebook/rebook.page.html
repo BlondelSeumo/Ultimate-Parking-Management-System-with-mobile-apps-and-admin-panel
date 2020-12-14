@@ -1,0 +1,42 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <span>P</span>ayPark
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="remain_div">
+    <h3 class="text">REMAINING TIME</h3>
+    <p class="time_p">
+      {{timer?.timeDisp}}
+    </p>
+    <div class="question_div">
+      <P class="quest_p">
+        Are you want to rebook <br>your parking space?
+      </P>
+    </div>
+    <P class="choose_time">Choose your rebooking time</P>
+
+  </div>
+  <div class="total_div">
+    <p class="total_p">Total Rebook Time <span class="ion-float-right">9h:41m</span></p>
+  </div>
+  <div class="last_div ion-margin-horizontal">
+    <h3 class="card_h">Choose card</h3>
+    <ion-item class="last_item" lines="none">
+      <ion-icon src="assets/icon-image/credit-card.svg" class="card"></ion-icon>
+      <ion-input value="	• • • •     • • • •     • • • •      1 2 3 4"></ion-input>
+      <ion-icon name="checkmark" slot="end" class="check_mark"></ion-icon>
+    </ion-item>
+  </div>
+
+</ion-content>
+<ion-footer>
+  <ion-button class="otp_btn">
+    Pay $97
+  </ion-button>
+</ion-footer>

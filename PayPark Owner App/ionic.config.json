@@ -1,0 +1,7 @@
+{
+  "name": "PayParkOwner",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

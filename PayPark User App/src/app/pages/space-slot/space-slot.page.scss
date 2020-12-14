@@ -1,0 +1,78 @@
+// .road {
+//     height: 100px;
+//     width: 4px;
+//     margin-right: auto;
+//     border-left: 1px dashed yellow;
+// }
+
+.road-left {
+    height: 100px;
+    width: 4px;
+    //border-right: 1px dashed yellow;
+}
+
+.ion-col-left {
+    border: 1px dashed #3199ff;
+    border-right: none;
+    text-align: center;
+
+    height: 100px;
+    transform: skewY(30deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.ion-col-left-booked {
+    //   border-right: 1px dashed yellow;
+
+}
+
+.rotate90 {
+
+    transform: rotateZ(90deg);
+}
+
+.rotate-90 {
+
+    transform: rotateZ(-90deg);
+}
+
+.ion-col-right {
+    border: 1px dashed #3199ff;
+    border-left: none;
+    text-align: center;
+    height: 100px;
+    transform: skewY(-30deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ion-col-right-booked {
+    //border-left: 1px dashed yellow;
+
+}
+
+h2 {
+    margin: 0px;
+}
+
+.col-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.road {
+    margin-top: 135px;
+}
+
+.disable {
+    color: gray;
+}
+
+.road:last-child {
+    border-bottom: 1px dashed red;
+}

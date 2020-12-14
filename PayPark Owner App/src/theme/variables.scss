@@ -1,0 +1,149 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
+:root {
+  /** primary **/
+  --ion-color-primary: #3880ff;
+  --ion-color-primary-rgb: 56, 128, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #3171e0;
+  --ion-color-primary-tint: #4c8dff;
+
+  /** secondary **/
+  --ion-color-secondary: #0cd1e8;
+  --ion-color-secondary-rgb: 12, 209, 232;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #0bb8cc;
+  --ion-color-secondary-tint: #24d6ea;
+
+  /** tertiary **/
+  --ion-color-tertiary: #7044ff;
+  --ion-color-tertiary-rgb: 112, 68, 255;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #633ce0;
+  --ion-color-tertiary-tint: #7e57ff;
+
+  /** success **/
+  --ion-color-success: #10dc60;
+  --ion-color-success-rgb: 16, 220, 96;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #0ec254;
+  --ion-color-success-tint: #28e070;
+
+  /** warning **/
+  --ion-color-warning: #ffce00;
+  --ion-color-warning-rgb: 255, 206, 0;
+  --ion-color-warning-contrast: #ffffff;
+  --ion-color-warning-contrast-rgb: 255, 255, 255;
+  --ion-color-warning-shade: #e0b500;
+  --ion-color-warning-tint: #ffd31a;
+
+  /** danger **/
+  --ion-color-danger: #f04141;
+  --ion-color-danger-rgb: 245, 61, 61;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d33939;
+  --ion-color-danger-tint: #f25454;
+
+  /** dark **/
+  --ion-color-dark: #222428;
+  --ion-color-dark-rgb: 34, 34, 34;
+  --ion-color-dark-contrast: #ffffff;
+  --ion-color-dark-contrast-rgb: 255, 255, 255;
+  --ion-color-dark-shade: #1e2023;
+  --ion-color-dark-tint: #383a3e;
+
+  /** medium **/
+  --ion-color-medium: #989aa2;
+  --ion-color-medium-rgb: 152, 154, 162;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #86888f;
+  --ion-color-medium-tint: #a2a4ab;
+
+  /** light **/
+  --ion-color-light: #f4f5f8;
+  --ion-color-light-rgb: 244, 244, 244;
+  --ion-color-light-contrast: #000000;
+  --ion-color-light-contrast-rgb: 0, 0, 0;
+  --ion-color-light-shade: #d7d8da;
+  --ion-color-light-tint: #f5f6f9;
+
+  // custom color
+
+  --ion-color-black: #333333;
+  --ion-color-blue: #003165;
+  --ion-color-lightblue: #eaf4ff;
+
+  --ion-color-borderline: #bcb2b27d;
+  --ion-color-twiter-btn: #0BAAFC;
+  --ion-color-white: #FFFFFF;
+  --ion-color-darkblue: #003165;
+  --ion-color-placeholder: #BBBBBB;
+  --ion-color-checkb: #C2C2C2;
+  --ion-color-facebook-btn: #465A95;
+  --ion-color-google-btn: #F65A5B;
+  --ion-color-gray: #A7A7A7;
+  --ion-input-place: #6B6B6B;
+  --ion-color-sky: #B2C1D0;
+  --ion-color-yellow: #E8C100;
+  --ion-color-star: #CFCFCF;
+  --ion-color-input: #4D6F93;
+  --ion-color-div: #335A84;
+  --ion-border-color: #E5E5E5;
+  --ion-color-green: #218721;
+  --ion-color-navy: #29335C;
+  --ion-colo-backg: #E8F2FE;
+  --ion-light-gray: #B5B5B5;
+  --ion-borcode-border: #7F97B1;
+  --ion-color-red: #FF4646;
+  --ion-color-picker: #85C0FF;
+  --ion-color-handle: #BDD9F8;
+  --ion-select-vehicle: #E4E6EA;
+}
+
+@font-face {
+  font-family: 'WorkSans_Bold';
+  src: url('../assets/Fonts/WorkSans/WorkSans-Bold.ttf')
+}
+
+@font-face {
+  font-family: 'WorkSans_Medium';
+  src: url('../assets/Fonts/WorkSans/WorkSans-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Rubik_Medium';
+  src: url('../assets/Fonts/Rubik/Rubik-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Rubik_Regular';
+  src: url('../assets/Fonts/Rubik/Rubik-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Rubik-Bold';
+  src: url('../assets/Fonts/Rubik/Rubik-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Rubik_Medium_I';
+  src: url('../assets/Fonts/Rubik/Rubik-MediumItalic.ttf');
+}
+
+@font-face {
+  font-family: 'Helvetica-Neue';
+  src: url('../assets/Fonts/helvetica/HelveticaNeue-MediumCond.otf');
+}
+
+@font-face {
+  font-family: 'Changa-Medium';
+  src: url('../assets/Fonts/Changa/Changa-Medium.ttf');
+}

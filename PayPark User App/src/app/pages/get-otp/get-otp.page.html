@@ -1,0 +1,28 @@
+<ion-content>
+  <div class="main-div ion-padding-vertical">
+    <div class="img_div ion-text-center">
+      <img src="assets/image/otp-img.png">
+    </div>
+
+    <div class="mobile-div">
+
+      <div class="ion-text-center tittle_div">
+        <h3 class="main_tittle">Add your Phone Number</h3>
+      </div>
+      <ion-item lines="none" class="item_row">
+        <img
+          src="{{'https://raw.githubusercontent.com/hjnilsson/country-flags/master/png250px/' + (countryObj?.code | lowercase) + '.png'}}"
+          width="50" height="30">
+        <ion-text class="text">{{country}}</ion-text>
+        <ion-input placeholder="Enter a mobile number" class="input_tag" type="tel" maxlength="10"
+          [(ngModel)]="phoneno"></ion-input>
+      </ion-item>
+      <p class="ion-text-center detail_p">By continuing you may receive an SMS for verification. Message and data rates
+        may apply</p>
+      <ion-button expand="full" class="otp_btn" (click)="verification()">
+        Send Otp
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

@@ -1,0 +1,102 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <span>P</span>ayPark
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar clearIcon="string" placeholder="Search..." [(ngModel)]="search"></ion-searchbar>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content>
+
+    </ion-refresher-content>
+  </ion-refresher>
+  <div class="data_div ion-margin-horizontal">
+    <p class="current">Current Booking</p>
+    <div class="card_div" *ngFor="let item of currantBooking  |filter:search">
+      <div class="info_div" (click)="openBooking(item.id)">
+        <p class="name">{{item?.space?.title}} <span class="ion-float-right"> {{item?.created_at | date}}</span></p>
+        <p class="id">
+          <ion-icon src="assets/icon-image/id-icon.svg"></ion-icon>ID No.{{item?.order_no}}
+        </p>
+        <p class="time">
+          <ion-icon src="assets/icon-image/clock-img.svg"></ion-icon>
+          {{item?.arriving_time |  date:'shortTime'  }} To
+          {{item?.leaving_time |  date:'shortTime'  }}
+          <span class="ion-float-right">${{item?.total_amount}}</span>
+        </p>
+      </div>
+      <div class="success">
+        <p class="msg">
+          <ng-container *ngIf="item?.payment_status == '0' ">
+            Waiting For Payment
+          </ng-container>
+          <ng-container *ngIf="item?.payment_status == '1' ">
+            Payment successfully
+          </ng-container>
+          <ng-container *ngIf="item?.payment_status == '2' ">
+            Payment Rejected
+          </ng-container>
+
+
+        </p>
+        <ion-button class="ion-text-capitalize" color="danger" fill="outline" expand="full"
+          (click)="cancelBooking(item.id)">
+          Cancel
+        </ion-button>
+      </div>
+    </div>
+    <div *ngIf="currantBooking.length < 1 ">
+      <h3 style="text-align: center;color: #7f97b1;">No Currant Booking Found :( </h3>
+    </div>
+    <p class="current">History</p>
+    <div class="card_div" *ngFor="let item of oldBooking |filter:search">
+      <div class="info_div" (click)="openBooking(item.id)">
+        <p class="name">{{item?.space?.title}} <span class="ion-float-right"> {{item?.created_at | date}}</span></p>
+        <p class="id">
+          <ion-icon src="assets/icon-image/id-icon.svg"></ion-icon>ID No.{{item?.order_no}}
+        </p>
+        <p class="time">
+          <ion-icon src="assets/icon-image/clock-img.svg"></ion-icon>
+          {{item?.arriving_time |  date:'shortTime'  }} To
+          {{item?.leaving_time |  date:'shortTime'  }}
+          <span class="ion-float-right">${{item?.total_amount}}</span>
+        </p>
+      </div>
+      <div class="success">
+        <p class="msg">
+          <ng-container *ngIf="item?.payment_status == '0' ">
+            Waiting For Payment
+          </ng-container>
+          <ng-container *ngIf="item?.payment_status == '1' ">
+            Payment successfully
+          </ng-container>
+          <ng-container *ngIf="item?.payment_status == '2' ">
+            Payment Rejected
+          </ng-container>
+          <ion-button class="trans-btn ion-text-capitalize ion-float-right ion-button-s">
+
+
+            <ng-container color="secondary" *ngIf="item?.status == '0'">Booked
+            </ng-container>
+            <ng-container color="tertiary" *ngIf="item?.status == '1'">In Parking
+            </ng-container>
+            <ng-container color="danger" *ngIf="item?.status == '3'">Cancel
+            </ng-container>
+            <ng-container color="success" *ngIf="item?.status == '2'">Complete
+            </ng-container>
+          </ion-button>
+        </p>
+      </div>
+    </div>
+
+    <div *ngIf="oldBooking.length < 1 ">
+      <h3 style="text-align: center;color: #7f97b1;">No Booking Found :( </h3>
+    </div>
+  </div>
+</ion-content>

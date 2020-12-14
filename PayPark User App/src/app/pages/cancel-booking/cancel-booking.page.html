@@ -1,0 +1,40 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button text=""></ion-back-button>
+
+    </ion-buttons>
+
+    <ion-title>
+      <span>P</span>ayPark
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item class="tittle_item">
+      <h3 class="tittle">
+        WHY YOU CANCEL YOUR PARKING SPACE?
+      </h3>
+    </ion-item>
+    <ion-radio-group>
+      <ion-item *ngFor="let i of cancleDate" lines="none">
+        <ion-label>{{i}}</ion-label>
+        <ion-radio slot="start" value="biff" mode="md"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+  <div class="description_div ion-margin-horizontal">
+    <h3 class="text">Descriprion</h3>
+    <ion-textarea rows="5">
+
+    </ion-textarea>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-button class="otp_btn">
+    Send
+  </ion-button>
+</ion-footer>

@@ -1,0 +1,51 @@
+ion-header {
+    ion-toolbar {
+        --background: var(--ion-color-darkblue);
+
+        ion-buttons {
+            ion-button {
+                ion-icon {
+                    color: var(--ion-color-white);
+                }
+            }
+        }
+    }
+}
+
+ion-select {
+    color: white;
+}
+
+small {
+    color: red;
+    font-weight: bolder;
+}
+
+ion-content {
+    --background: var(--ion-color-darkblue);
+
+    .main_div {
+        .question {
+            font-size: 25px;
+            color: var(--ion-color-white);
+
+        }
+
+        .second {
+            margin-top: 60px;
+        }
+
+        ion-item {
+            --background: var(--ion-color-darkblue);
+            --border-color: var(--ion-color-input);
+            --padding-start: 0;
+            --inner-padding-end: 0;
+
+            ion-input {
+                color: var(--ion-color-input);
+                --placeholder-opacity: 1;
+                font-size: 15px;
+            }
+        }
+    }
+}

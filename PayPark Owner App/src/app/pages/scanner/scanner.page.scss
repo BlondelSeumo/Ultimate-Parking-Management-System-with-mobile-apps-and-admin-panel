@@ -1,0 +1,105 @@
+ion-content {
+    .barcode_div {
+        text-align: center;
+        margin-top: 30px;
+
+        .scan_p {
+            font-size: 16px;
+            font-family: 'Rubik_Medium';
+            color: var(--ion-color-darkblue);
+        }
+
+    }
+
+    .divider {
+        height: 20px;
+        background-color: var(--ion-colo-backg);
+    }
+
+    .payment_div {
+        margin-top: 50px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 6px 0px rgba(52, 150, 255, 0.16);
+        position: relative;
+
+        .firsr_div {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-color: var(--ion-color-darkblue);
+            position: absolute;
+            top: -30px;
+            left: calc(50% - 32px);
+        }
+
+        .id_div {
+            text-align: center;
+            padding: 10px 0px;
+
+            .text {
+                font-size: 16px;
+                font-family: 'Rubik_Medium';
+                color: var(--ion-color-darkblue);
+                margin-bottom: 0px;
+                margin-top: 20px;
+            }
+
+            .id_p {
+                font-size: 12px;
+                font-family: 'Rubik_Medium';
+                color: var(--ion-color-blue);
+                margin-top: 10px;
+            }
+        }
+
+        .date_div {
+            display: flex;
+            padding: 10px 0px;
+            border-bottom: solid 1px var(--ion-border-color);
+            border-top: solid 1px var(--ion-border-color);
+
+            div {
+                width: 33.33%;
+                text-align: center;
+
+                .label {
+                    font-size: 12px;
+                    color: var(--ion-color-darkblue);
+                    font-family: 'Rubik_Medium';
+                    margin-top: 5px;
+                }
+
+                .data {
+                    font-size: 12px;
+                    color: var(--ion-color-darkblue);
+                    font-family: 'Rubik_Medium';
+                }
+            }
+        }
+
+        .name_div {
+            padding: 10px 0px;
+
+            .name {
+                font-size: 16px;
+                font-family: 'Rubik_Medium';
+                color: var(--ion-color-darkblue);
+                text-align: center;
+                margin-top: 0px;
+            }
+
+            .car {
+                font-size: 12px;
+                font-family: 'Rubik_Medium';
+                color: var(--ion-color-darkblue);
+                padding: 0px 10px;
+            }
+
+        }
+
+    }
+
+    video {
+        height: 400px;
+    }
+}

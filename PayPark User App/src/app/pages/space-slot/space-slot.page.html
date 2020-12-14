@@ -1,0 +1,162 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <span>P</span>ayPark
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="bookingNavigation()" color="primary" *ngIf="whereMyCar !== 'entry'">
+        <ion-icon slot="end" name="arrow-round-forward"></ion-icon>
+        Next
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <!-- <ion-list-header>Single Selection</ion-list-header> -->
+
+    <!-- <ion-item color="primary">
+      <ion-label>Your Vehicle</ion-label>
+      <ion-select [(ngModel)]="selectedVehicle" (ionChange)="getDefaultVehicleById()">
+        <ion-select-option [value]="item.id" *ngFor="let item of vehicle">
+          {{item.model}} - {{item.vehicle_no}} {{item.default_vehicle}}
+
+        </ion-select-option>
+
+
+
+      </ion-select>
+    </ion-item> -->
+
+
+
+  </ion-list>
+
+  <ion-segment class="ion-padding" mode="ios" color="primary" [(ngModel)]="segment">
+    <ion-segment-button [value]="item.id" *ngFor="let item of zoneData;let first= first" [checked]="first">
+      <ion-label>{{item.name}}</ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col style="min-height: 100px;" size="12" class="ion-text-center" (click)="parkMyCar('entry',true)">
+        <img *ngIf="whereMyCar === 'entry'" src=" assets/car/myCar.png" alt="" srcset="" style="width: 12%;">
+        <h2 *ngIf="whereMyCar !== 'entry'">Entry</h2>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+  <div [ngSwitch]="segment">
+    <ng-container *ngFor="let item of zoneData">
+      <ion-grid class="ion-padding" *ngSwitchCase="item.id">
+        <ion-row>
+          <ng-container *ngFor="let slot of item.slots;let i = index; let even = even; let odd = odd">
+            <ion-col size="5" class="ion-col-left ion-col-left-booked" (click)="parkMyCar(slot.id,slot.available)"
+              *ngIf="even">
+              <ng-container *ngIf="slot.booked == 1"> <img class="rotate-90" src="assets/car/red.png" alt="" srcset="">
+
+              </ng-container>
+              <ng-container *ngIf="slot.booked != 1">
+
+                <h2 *ngIf="whereMyCar !== slot.id" [ngClass]="{'disable': slot.available == false  }">{{slot.name}}</h2>
+                <img *ngIf="whereMyCar === slot.id" src=" assets/car/myCar.png" alt="" srcset="" style="width: 35%;"
+                  class="rotate-90">
+              </ng-container>
+
+
+
+
+            </ion-col>
+            <ion-col size="2" *ngIf="even">
+
+            </ion-col>
+            <ion-col size="5" class="ion-col-right ion-col-right-booked" (click)="parkMyCar(slot.id,slot.available)"
+              *ngIf="odd">
+              <!-- <h2>B1</h2> -->
+              <ng-container *ngIf="slot.booked == 1"> <img class="rotate90" src="assets/car/red.png" alt="" srcset="">
+
+              </ng-container>
+              <ng-container *ngIf="slot.booked != 1">
+
+                <h2 *ngIf="whereMyCar !== slot.id" [ngClass]="{'disable': slot.available == false }">
+                  {{slot.name}}</h2>
+                <img *ngIf="whereMyCar === slot.id" src=" assets/car/myCar.png" alt="" srcset="" style="width: 35%;"
+                  class="rotate90">
+              </ng-container>
+            </ion-col>
+          </ng-container>
+
+
+          <!-- <ion-col size="5" class="ion-col-left" (click)="parkMyCar('A2')">
+        <h2 *ngIf="whereMyCar !== 'A2'">A2</h2>
+        <img *ngIf="whereMyCar === 'A2'" src=" assets/car/myCar.png" alt="" srcset="" style="width: 35%;"
+          class="rotate90">
+      </ion-col>
+      <ion-col size="2">
+
+      </ion-col>
+      <ion-col size="5" class="ion-col-right ion-col-right-booked">
+        <img class="rotate90" src="assets/car/blue.png" alt="" srcset="">
+      </ion-col>
+      <ion-col size="5" class="ion-col-left" (click)="parkMyCar('A3')">
+        <h2 *ngIf="whereMyCar !== 'A3'">A3</h2>
+        <img *ngIf="whereMyCar === 'A3'" src=" assets/car/myCar.png" alt="" srcset="" style="width: 35%;"
+          class="rotate90">
+      </ion-col>
+      <ion-col size="2">
+
+      </ion-col>
+      <ion-col size="5" class="ion-col-right ion-col-right-booked">
+        <img class="rotate90" src="assets/car/red.png" alt="" srcset="">
+
+      </ion-col>
+      <ion-col size="5" class="ion-col-left ion-col-left-booked">
+        <img class="rotate-90" src="assets/car/blue.png" alt="" srcset="">
+
+
+      </ion-col>
+      <ion-col size="2">
+
+      </ion-col>
+      <ion-col size="5" class="ion-col-right" (click)="parkMyCar('B4')">
+
+        <h2 *ngIf="whereMyCar !== 'B4'">B4</h2>
+        <img *ngIf="whereMyCar === 'B4'" src=" assets/car/myCar.png" alt="" srcset="" style="width: 35%;"
+          class="rotate-90">
+      </ion-col>
+      <ion-col size="5" class="ion-col-left" (click)="parkMyCar('A5')">
+
+        <h2 *ngIf="whereMyCar !== 'A5'">A5</h2>
+        <img *ngIf="whereMyCar === 'A5'" src=" assets/car/myCar.png" alt="" srcset="" style="width: 35%;"
+          class="rotate90">
+      </ion-col>
+      <ion-col size="2" class="road ion-text-center">
+        Exit
+      </ion-col>
+      <ion-col size="5" class="ion-col-right" (click)="parkMyCar('B5')">
+
+        <h2 *ngIf="whereMyCar !== 'B5'">B5</h2>
+        <img *ngIf="whereMyCar === 'B5'" src=" assets/car/myCar.png" alt="" srcset="" style="width: 35%;"
+          class="rotate-90">
+      </ion-col> -->
+        </ion-row>
+      </ion-grid>
+    </ng-container>
+  </div>
+</ion-content>
+
+<!-- 
+  space_d = 5
+  owner_d = 2
+  zone_d 1 2
+
+  vehivle 3
+
+ -->

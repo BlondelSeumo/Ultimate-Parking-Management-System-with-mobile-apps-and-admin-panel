@@ -1,0 +1,6 @@
+1. Import datbase paypark.sql
+2. Upload and Unzip folder Admin Panel
+3. Edit file .env and change info your database
+4. Info login:
+admin@admin.com
+123456

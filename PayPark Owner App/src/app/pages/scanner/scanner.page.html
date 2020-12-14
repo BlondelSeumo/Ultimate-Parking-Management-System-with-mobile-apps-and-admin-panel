@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+
+
+    </ion-buttons>
+    <ion-title>Scanner</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="barcode_div" *ngIf="!booking.id">
+
+    <p class="scan_p">Scan user barcode</p>
+    <zxing-scanner (scanSuccess)="scanCompleteHandler($event)">
+    </zxing-scanner>
+
+  </div>
+  <div class="divider">
+
+  </div>
+  <ion-grid class="ion-no-padding ion-margin-top">
+    <ion-row>
+      <ion-col sizeSm="12" sizeXl="8" sizeLg="10" sizeMd="10" pushLg="1" pushMd="1" pushXl="2">
+        <div class="ion-margin-horizontal payment_div" *ngIf="booking.id">
+          <div class="firsr_div">
+            <img src="assets/image/ticket.png">
+          </div>
+          <div class="id_div">
+            <h3 class="text">
+              <ng-container *ngIf="booking?.payment_status == '0' ">
+                Waiting For Payment
+              </ng-container>
+              <ng-container *ngIf="booking?.payment_status == '1' ">
+                Payment successfully
+              </ng-container>
+              <ng-container *ngIf="booking?.payment_status == '2' ">
+                Payment Rejected
+              </ng-container>
+            </h3>
+
+            <p class="id_p">ID No. {{booking?.order_no}}</p>
+
+
+            <ion-button shape="round" fill="outline" color="secondary" *ngIf="booking?.status == '0'">Booked
+            </ion-button>
+            <ion-button shape="round" fill="outline" color="tertiary" *ngIf="booking?.status == '1'">In Parking
+            </ion-button>
+            <ion-button shape="round" fill="outline" color="danger" *ngIf="booking?.status == '3'">Cancel
+            </ion-button>
+            <ion-button shape="round" fill="outline" color="success" *ngIf="booking?.status == '2'">Complete
+            </ion-button>
+          </div>
+          <div class="date_div">
+            <div class="date">
+              <h3 class="label">Arriving time</h3>
+              <p class="data">{{booking?.arriving_time}}</p>
+            </div>
+            <div class="time">
+              <h3 class="label">Leaving time</h3>
+              <p class="data">{{booking?.leaving_time}}</p>
+            </div>
+            <div class="price">
+              <h3 class="label">Price</h3>
+              <p class="data">${{booking?.total_amount}}</p>
+            </div>
+          </div>
+          <div class="name_div">
+            <h3 class="name">{{booking?.user?.name}}</h3>
+            <p class="car">Vehicle Type: {{booking?.vehicle?.model}}
+              <span class="ion-float-right">Vehicle Number: {{booking?.vehicle?.vehicle_no}}</span></p>
+          </div>
+          <div class="ion-text-center">
+            <ion-button (click)="changeStatus(1,booking?.payment_status)" *ngIf="booking?.status == '0'">
+              <ion-icon slot="start" name="arrow-dropright"></ion-icon>
+              Check In
+            </ion-button>
+            <ion-button (click)="changeStatus(2,booking?.payment_status)" *ngIf="booking?.status == '1'">
+              <ion-icon slot="start" name="checkmark"></ion-icon>
+              Check Out
+            </ion-button>
+            <ion-button (click)="changeStatus(3,booking?.payment_status)" color="danger" *ngIf="booking?.status == '0'">
+              <ion-icon slot="start" name="close"></ion-icon>
+              Cancel
+            </ion-button>
+            <ion-button (click)="changeStatus(booking?.status,1)" color="success"
+              *ngIf="booking?.payment_status != '1'">
+              <ion-icon slot="start" name="card"></ion-icon>
+              Payment
+            </ion-button>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

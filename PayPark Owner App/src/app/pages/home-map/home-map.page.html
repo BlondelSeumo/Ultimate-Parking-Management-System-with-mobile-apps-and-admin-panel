@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar mode="md" color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>God View</ion-title>
+    <ion-buttons slot="end">
+      <ion-buttons slot="end">
+
+        <ion-button (click)="addSpace()">
+          <ion-label class="show-sm">New Space</ion-label>
+          <ion-icon class="show-sm" name="add" slot="end"></ion-icon>
+          <ion-icon class="hide-sm" name="add" slot="icon-only"></ion-icon>
+        </ion-button>
+        <ion-button (click)="backToHome()">
+          <ion-label class="show-sm">Home</ion-label>
+          <ion-icon class="show-sm" name="home" slot="end"></ion-icon>
+          <ion-icon class="hide-sm" name="home" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="ion-no-padding">
+        <agm-map [latitude]="spaceData[0]?.lat" [longitude]="spaceData[0]?.lng">
+          <agm-marker [latitude]="space.lat" [longitude]="space.lng" *ngFor="let space of spaceData">
+            <agm-info-window>
+              {{space.title}}
+              <a (click)="viewMyParking(space.id)">View Detail</a>
+            </agm-info-window>
+          </agm-marker>
+        </agm-map>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

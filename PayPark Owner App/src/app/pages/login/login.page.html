@@ -1,0 +1,92 @@
+<ion-content>
+
+    <ion-grid class="ion-no-padding">
+        <ion-row>
+            <ion-col sizeSm="12" sizeLg="4" sizeMd="6" pushSm="0" pushLg="4" pushMd="3">
+                <div class="ion-text-center  logo_div">
+                    <img src="assets/image/logo.png">
+                    <h3 class="logo_text"><span>P</span>ay<span>P</span>ark</h3>
+                    <h3 class="signin">SIGN IN</h3>
+                </div>
+
+                <form>
+                    <ion-item lines="none" class="item_div">
+                        <ion-label position="stacked" class="lbl_name" mode="md">Email</ion-label>
+                        <ion-input required [(ngModel)]="data.email" name="email" type="text"
+                            placeholder="JohnDeo@gmail.com">
+                        </ion-input>
+                        <strong color="danger" *ngIf="error.email">{{error.email['0']}}</strong>
+
+                    </ion-item>
+                    <ion-item lines="none" class="item_div">
+                        <ion-label position="stacked" class="lbl_name" mode="md">Password</ion-label>
+                        <ion-input required [(ngModel)]="data.password" name="password" type="Password"
+                            placeholder="*  *  *  *  *  *"></ion-input>
+                        <ion-button slot="end" class="trans-btn">
+                            <ion-icon name="eye"></ion-icon>
+                        </ion-button>
+                        <strong color="danger" *ngIf="error.password">{{error.password['0']}}</strong>
+
+                    </ion-item>
+                    <ion-row>
+                        <ion-col class="first_col">
+                            <ion-checkbox  [(ngModel)]="data.remember" [ngModelOptions]="{standalone: true}"></ion-checkbox>
+                            <ion-label>
+                                <h3 class="remember">Remember Me</h3>
+                            </ion-label>
+                        </ion-col>
+                        <ion-col class="ion-text-right">
+                            <ion-button class="forgot-btn ion-text-capitalize trans-btn" (click)="forgotPassword()">
+                                forgot password?
+                            </ion-button>
+                        </ion-col>
+                    </ion-row>
+                    <ion-row>
+                        <ion-col size="12">
+                            <ion-list>
+                                <ion-radio-group [(ngModel)]="data.type" [ngModelOptions]="{standalone: true}">
+
+
+                                    <ion-item>
+                                        <ion-label>Parking Owner</ion-label>
+                                        <ion-radio slot="start" value="owner" checked></ion-radio>
+                                    </ion-item>
+
+                                    <ion-item>
+                                        <ion-label>Parking Guard</ion-label>
+                                        <ion-radio slot="start" value="guard"></ion-radio>
+                                    </ion-item>
+
+
+                                </ion-radio-group>
+                            </ion-list>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-button class="otp_btn signin_btn" [disabled]="!data.type" mode="md" expand="full" shape="round" fill="solid"
+                        (click)="gotoSlide()">
+                        Sign in
+                    </ion-button>
+                </form>
+                <div class="or">
+                    <h2 class="background"><span>or</span></h2>
+                </div>
+                <div class="last-div ion-text-center">
+                    <!-- <ion-button class="facbook social">
+                        <ion-icon src="assets/icon-image/facbook.svg"></ion-icon>
+                    </ion-button>
+                    <ion-button class="google social">
+                        <ion-icon name="logo-googleplus"></ion-icon>
+                    </ion-button>
+                    <ion-button class="twitter social">
+                        <ion-icon name="logo-twitter"></ion-icon>
+                    </ion-button> -->
+                    <div class="account_div">
+                        <span class="text">Need an Account?</span>
+                        <ion-button class="trans-btn last_button" (click)="signup()">Sign up</ion-button>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

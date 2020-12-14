@@ -1,0 +1,246 @@
+ion-header{
+    ion-toolbar{
+        ion-title{
+            color: var( --ion-color-black);
+        }
+    }
+}
+
+
+ion-content{
+    ion-row{
+        border-top: dashed 1px var(--ion-color-sky);
+        border-bottom: dashed 1px var(--ion-color-sky);
+        margin-top: 15px;
+      
+        ion-col{
+    
+            .tittle{
+                font-size: 14px;
+                font-family: 'Rubik_Medium';
+                color: var(--ion-color-darkblue);
+                text-align: center;
+                margin-bottom: 0px;
+            }
+            .data{
+                font-size: 14px;
+                font-family: 'Rubik_Medium';
+                color: var(--ion-color-blue);
+                text-align: center;
+                margin-top: 8px;
+                margin-bottom: 7px;
+            }
+        }
+        .first_col{
+            border-right: dashed 1px var(--ion-color-sky);
+        }
+    }
+ 
+  .detail_div{
+      margin-bottom: 15px;
+      .info_div{
+          padding: 10px 0px;
+          .name{
+              font-size: 16px;
+              font-family: 'Rubik_Medium';
+              color: var(--ion-color-blue);
+          }
+          .location{
+              font-size: 12px;
+              margin-top: 5px;
+              margin-bottom: 7px;
+              font-family: 'Rubik_Medium';
+              color: var(--ion-color-darkblue);
+              .icon_color{
+                  color: var(--ion-color-yellow);
+              }
+              .ion_default{
+                  color: var(--ion-color-star);
+              }
+              .blue_icon{
+                  margin-right: 7px;
+              }
+              .text{
+                  color: var(--ion-color-checkb);
+                  font-family: 'Rubik_Regular';
+              }
+          }
+      }
+      .tridev{
+          height: 70px;
+          background-color: var(--ion-colo-backg);
+          display: flex;
+         align-items: center;
+          .distance_div{
+              width: 25%;
+              .distance{
+                font-size: 14px;
+                font-family: 'Rubik_Medium';
+                color: var(--ion-color-darkblue);
+                text-align: center;
+                margin-bottom: 0px;
+              }
+              .detail_p{
+                margin-top: 5px;
+                font-family: 'Rubik_Medium';
+                color: var(--ion-color-darkblue);
+                font-size: 10px;
+                text-align: center;
+              }
+          }
+          .dot_div{
+                width: 12.5%;
+                display: flex;
+                justify-content: center;
+              .dot{
+                  height: 7px;
+                  width: 7px;
+                  background-color: var(--ion-color-blue);
+                  border-radius:50%;
+              }
+          }
+      }
+      .segment_div{
+     
+          ion-segment{
+              padding: 10px;
+            ion-segment-button{
+                --color:var(--ion-color-darkblue);
+                --color-checked:var(--ion-color-blue);
+                --indicator-color:var(--ion-border-color);
+                --indicator-color-checked:var(--ion-color-blue);
+                ion-label{
+                    font-size: 12px;
+                    font-family: 'Rubik_Medium';
+                    text-transform: capitalize;
+                }
+            }
+          }
+          .information_div{
+              .img_detail{
+                  position: relative;
+                  .lorem_p{
+                      font-size: 10px;
+                      font-family: 'Rubik_Regular';
+                      color: var(--ion-light-gray);
+                      text-align: center;
+                      margin-bottom: 20px;
+                  }
+                  img{
+                      height: 157px;
+                      width: 100%;
+                      border-radius: 5px;
+                  }
+                  .img_tittle{
+                    position: absolute;
+                    bottom: 0;
+                    font-size: 14px;
+                    font-family: 'Rubik_Medium';
+                    color: var(--ion-color-white);
+                    background-color: rgba(0, 0, 0, 0.5);
+                    width: 100%;
+                    margin-bottom: 4px;
+                    border-radius: 0px 0px 5px 5px;
+                    padding: 5px 10px; 
+                    text-align: end;
+                    ion-icon{
+                        margin-right: 5px;
+                    }
+                  }
+              }
+              .service_div{
+                  margin-top: 15px;
+                  background-color: var(--ion-colo-backg);
+                  height: 118px;
+                  display: flex;
+                  align-items: center;
+                  .img_div{
+                      width: 25%;
+                   
+                      .service_p{
+                          font-size: 14px;
+                          font-family: 'Rubik_Medium';
+                          color: var(--ion-color-darkblue);
+                          text-align: center;
+                          width: 60%;
+                          margin: auto;
+                      
+                      }
+                      .img_info{
+                          display: flex;
+                          justify-content: center;
+                      }
+
+                      .ps_div{
+                          margin-top: 15px;
+                      }
+                  }
+              }
+          }
+          .review_div{
+              margin-top: 10px;
+              .card_div{
+                  display: flex;
+                  margin-bottom: 16px;
+                  .user_img{
+                    width: 20%;
+                    img{
+                        border-radius: 2px;
+                    }
+                  }
+                  .user_detail{
+                    width: 80%;
+                    padding-left: 7px;
+                    .name{
+                        font-size: 14px;
+                        font-family: 'Rubik_Medium';
+                        color: var(--ion-color-darkblue);
+                        margin: 0px;
+                    }
+                    .star_p{
+                        margin: 0px;
+                        height: 15px;
+                        display: flex;
+                         align-items: center;
+                        .icon_color{
+                            color: var(--ion-color-yellow);
+                            height: 10px;
+                            width: 10px;
+                        }
+                        .ion_default{
+                            color: var(--ion-color-star);
+                            height: 10px;
+                            width: 10px;
+                        }
+                    }
+                   .about{
+                       font-size: 12px;
+                       font-family: 'Rubik_Regular';    
+                       color: var( --ion-color-sky);
+                       margin-bottom: 0px;
+                       margin-top: 3px;
+                   }
+                  }
+              }
+              .view_all{
+                  height: 50px;
+                  border-radius: 27px;
+                  background-color: var(--ion-colo-backg);
+                  display: flex;
+                  padding: 0px 20px;
+                  align-items: center;
+                  .view_p{
+                      margin: 0px;
+                      width: 100%;
+                      font-size: 14px;
+                      font-family: 'Rubik_Medium';
+                      color: var(--ion-color-darkblue);
+                      ion-icon{
+                          color: var(--ion-color-blue);
+                      }
+                  }
+              }
+          }
+      }
+  }
+}

@@ -1,0 +1,103 @@
+ion-menu {
+  --ion-background-color: var(--ion-color-lightblue);
+  --ion-text-color: var(--ion-color-darkblue);
+  // max-width: 375px !important;
+
+  ion-icon {
+    color: var(--ion-color-darkblue);
+  }
+
+  ion-list {
+    background: transparent;
+  }
+
+  ion-header {
+    ion-toolbar {
+      --background: transparent;
+
+      ion-buttons {
+        ion-button {
+          ion-icon {
+            color: var(--ion-color-white);
+          }
+        }
+      }
+    }
+
+    .img_div {
+      .name {
+        font-size: 18px;
+        font-family: "Rubik_Medium";
+        color: var(--ion-color-darkblue);
+        margin-bottom: 5px;
+      }
+
+      .text {
+        font-size: 14px;
+        font-family: "Rubik_Medium";
+        color: var(--ion-color-darkblue);
+        margin-top: 0px;
+      }
+    }
+  }
+
+  ion-content {
+    ion-list {
+      margin-left: 16px;
+
+      ion-item {
+        ion-icon {
+          height: 18px;
+          width: 18px;
+          margin-right: 10px;
+        }
+
+        ion-label {
+          font-size: 18px;
+          font-family: "Rubik_Medium";
+        }
+      }
+    }
+  }
+
+  ion-footer {
+    display: flex;
+
+    p {
+      font-size: 18px;
+      font-family: "Rubik_Medium";
+      color: var(--ion-color-darkblue);
+      padding-left: 10px;
+      padding-right: 10px;
+      width: 50%;
+
+      ion-icon {
+        margin-right: 5px;
+        height: 16px;
+        width: 16px;
+      }
+    }
+
+    .second_p {
+      text-align: right;
+    }
+  }
+
+  .active {
+    --color: #3880ff;
+
+    ion-icon {
+      color: #3880ff;
+    }
+  }
+}
+
+.footer-md:before {
+  height: 0px;
+}
+
+@media (min-width: 992px) {
+  ion-menu {
+    max-width: 330px !important;
+  }
+}
